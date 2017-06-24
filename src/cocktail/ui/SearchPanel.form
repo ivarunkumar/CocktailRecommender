@@ -19,10 +19,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="jLabel8" min="-2" pref="440" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="jLabel8" min="-2" pref="440" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel7" min="-2" pref="118" max="-2" attributes="0"/>
@@ -37,23 +34,23 @@
                       </Group>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jButton4" alignment="0" pref="256" max="32767" attributes="0"/>
-                          <Component id="jButton3" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jButton7" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jButton6" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jButton5" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jButton2" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jButton1" alignment="0" max="32767" attributes="0"/>
+                          <Component id="butGarnishingSelector" alignment="0" pref="256" max="32767" attributes="0"/>
+                          <Component id="butSupplementaryJuiceSelector" alignment="0" max="32767" attributes="0"/>
+                          <Component id="butPreparationSelector" alignment="0" max="32767" attributes="0"/>
+                          <Component id="butTasteSelector" alignment="0" max="32767" attributes="0"/>
+                          <Component id="butEnhancerSelector" alignment="0" max="32767" attributes="0"/>
+                          <Component id="butPrimaryJuiceSelector" alignment="0" max="32767" attributes="0"/>
+                          <Component id="butAlcoholSelector" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="Avoid6" alignment="0" max="-2" attributes="0"/>
-                          <Component id="Avoid5" alignment="0" max="-2" attributes="0"/>
-                          <Component id="Avoid3" alignment="0" max="-2" attributes="0"/>
-                          <Component id="Avoid2" alignment="0" max="-2" attributes="0"/>
-                          <Component id="Avoid" alignment="0" max="-2" attributes="0"/>
-                          <Component id="Avoid4" alignment="0" max="-2" attributes="0"/>
-                          <Component id="Avoid1" alignment="0" max="-2" attributes="0"/>
+                          <Component id="jcbAvoidPreparation" alignment="0" max="-2" attributes="0"/>
+                          <Component id="jcbAvoidTaste" alignment="0" max="-2" attributes="0"/>
+                          <Component id="jcbAvoidGarnishing" alignment="0" max="-2" attributes="0"/>
+                          <Component id="jcbAvoidSupplementaryJuice" alignment="0" max="-2" attributes="0"/>
+                          <Component id="jcbAvoidPrimaryJuice" alignment="0" max="-2" attributes="0"/>
+                          <Component id="jcbAvoidEnhancer" alignment="0" max="-2" attributes="0"/>
+                          <Component id="jcbAvoidAlcohol" alignment="0" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                   </Group>
@@ -67,46 +64,46 @@
               <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="Avoid1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="butAlcoholSelector" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jcbAvoidAlcohol" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton5" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="Avoid4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="butEnhancerSelector" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jcbAvoidEnhancer" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="Avoid" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="butPrimaryJuiceSelector" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jcbAvoidPrimaryJuice" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="Avoid2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="butSupplementaryJuiceSelector" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jcbAvoidSupplementaryJuice" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="Avoid3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="butGarnishingSelector" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jcbAvoidGarnishing" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton6" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="Avoid5" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="butTasteSelector" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jcbAvoidTaste" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                       <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButton7" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="butPreparationSelector" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="Avoid6" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jcbAvoidPreparation" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
@@ -131,49 +128,52 @@
         <Property name="text" type="java.lang.String" value="Supplementary Juice"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="butAlcoholSelector">
       <Properties>
         <Property name="text" type="java.lang.String" value="Choose Alcohol"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butAlcoholSelectorActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="Avoid">
+    <Component class="javax.swing.JCheckBox" name="jcbAvoidPrimaryJuice">
       <Properties>
         <Property name="text" type="java.lang.String" value="Avoid"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AvoidActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jcbAvoidPrimaryJuiceActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton2">
+    <Component class="javax.swing.JButton" name="butPrimaryJuiceSelector">
       <Properties>
         <Property name="text" type="java.lang.String" value="Choose Primary Juice"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butPrimaryJuiceSelectorActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="Avoid1">
+    <Component class="javax.swing.JCheckBox" name="jcbAvoidAlcohol">
       <Properties>
         <Property name="text" type="java.lang.String" value="Avoid"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Avoid1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jcbAvoidAlcoholActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton3">
+    <Component class="javax.swing.JButton" name="butSupplementaryJuiceSelector">
       <Properties>
         <Property name="text" type="java.lang.String" value="Choose Supplementary Juice"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butSupplementaryJuiceSelectorActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="Avoid2">
+    <Component class="javax.swing.JCheckBox" name="jcbAvoidSupplementaryJuice">
       <Properties>
         <Property name="text" type="java.lang.String" value="Avoid"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Avoid2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jcbAvoidSupplementaryJuiceActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
@@ -181,20 +181,20 @@
         <Property name="text" type="java.lang.String" value="Garnishing"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton4">
+    <Component class="javax.swing.JButton" name="butGarnishingSelector">
       <Properties>
         <Property name="text" type="java.lang.String" value="Choose Garnishing"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butGarnishingSelectorActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="Avoid3">
+    <Component class="javax.swing.JCheckBox" name="jcbAvoidGarnishing">
       <Properties>
         <Property name="text" type="java.lang.String" value="Avoid"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Avoid3ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jcbAvoidGarnishingActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
@@ -202,20 +202,20 @@
         <Property name="text" type="java.lang.String" value="Enhancer"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton5">
+    <Component class="javax.swing.JButton" name="butEnhancerSelector">
       <Properties>
         <Property name="text" type="java.lang.String" value="Choose Enhancer"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton5ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butEnhancerSelectorActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="Avoid4">
+    <Component class="javax.swing.JCheckBox" name="jcbAvoidEnhancer">
       <Properties>
         <Property name="text" type="java.lang.String" value="Avoid"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Avoid4ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jcbAvoidEnhancerActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
@@ -223,20 +223,20 @@
         <Property name="text" type="java.lang.String" value="Taste Preference"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton6">
+    <Component class="javax.swing.JButton" name="butTasteSelector">
       <Properties>
         <Property name="text" type="java.lang.String" value="Choose Taste Preference"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton6ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butTasteSelectorActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="Avoid5">
+    <Component class="javax.swing.JCheckBox" name="jcbAvoidTaste">
       <Properties>
         <Property name="text" type="java.lang.String" value="Avoid"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Avoid5ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jcbAvoidTasteActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
@@ -244,21 +244,21 @@
         <Property name="text" type="java.lang.String" value="Preparation Method"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton7">
+    <Component class="javax.swing.JButton" name="butPreparationSelector">
       <Properties>
         <Property name="text" type="java.lang.String" value="Choose Preparation Method"/>
         <Property name="actionCommand" type="java.lang.String" value="Choose Preparation"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton7ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butPreparationSelectorActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="Avoid6">
+    <Component class="javax.swing.JCheckBox" name="jcbAvoidPreparation">
       <Properties>
         <Property name="text" type="java.lang.String" value="Avoid"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Avoid6ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jcbAvoidPreparationActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel8">

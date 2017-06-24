@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<Case>
+    <CompoundAttribute isId="false">
+        <attribType/>
+        <name>Solution</name>
+    </CompoundAttribute>
+    <CompoundAttribute isId="false">
+        <attribType/>
+        <name>Result</name>
+    </CompoundAttribute>
+    <CompoundAttribute isId="false">
+        <attribType/>
+        <name>Justification</name>
+    </CompoundAttribute>
+    <CompoundAttribute isId="false">
+        <attribType>CaseDescription</attribType>
+        <name>Description</name>
+        <SimpleAttribute isId="false">
+            <attribType>java.lang.String</attribType>
+            <name>Steps</name>
+        </SimpleAttribute>
+        <SimpleAttribute isId="false">
+            <attribType>java.lang.String</attribType>
+            <name>Preparation</name>
+        </SimpleAttribute>
+        <SimpleAttribute isId="false">
+            <attribType>java.lang.String</attribType>
+            <name>Taste</name>
+        </SimpleAttribute>
+        <SimpleAttribute isId="false">
+            <attribType>java.lang.String</attribType>
+            <name>Garnishing</name>
+        </SimpleAttribute>
+        <SimpleAttribute isId="false">
+            <attribType>java.lang.String</attribType>
+            <name>SupplementaryJuice</name>
+        </SimpleAttribute>
+        <SimpleAttribute isId="false">
+            <attribType>java.lang.String</attribType>
+            <name>PrimaryJuice</name>
+        </SimpleAttribute>
+        <SimpleAttribute isId="false">
+            <attribType>java.lang.String</attribType>
+            <name>Enhancer</name>
+        </SimpleAttribute>
+        <SimpleAttribute isId="false">
+            <attribType>java.lang.String</attribType>
+            <name>Alcohol</name>
+        </SimpleAttribute>
+        <SimpleAttribute isId="false">
+            <attribType>java.lang.String</attribType>
+            <name>RecipeName</name>
+        </SimpleAttribute>
+        <SimpleAttribute isId="true">
+            <attribType>java.lang.Integer</attribType>
+            <name>CaseId</name>
+        </SimpleAttribute>
+    </CompoundAttribute>
+</Case>

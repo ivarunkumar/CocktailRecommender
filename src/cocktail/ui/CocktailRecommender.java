@@ -5,8 +5,12 @@
  */
 package cocktail.ui;
 
+import cocktail.cbr.CBRApplication;
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
+import jcolibri.cbrcore.CBRCase;
+import jcolibri.cbrcore.CBRCaseBase;
+import jcolibri.exception.ExecutionException;
 
 /**
  *
@@ -22,14 +26,30 @@ public class CocktailRecommender extends javax.swing.JFrame {
     private static final String[] actionCommand= {"Query", "Importance", "Refresh"};
     private static final String[] stageTitles = {"Search Cocktails", "Importance/Weightage Selection", "Search and Adaptation Results"};
     private int currentPanelIdx = 0;
-    
+    private CBRApplication cbrApp = new CBRApplication();
     /**
      * Creates new form CocktailRecommender
      */
     public CocktailRecommender() {
+        initCbr();
         initComponents();
         initPanels();
         activatePanel(0);
+
+    }
+    
+    private void initCbr() {
+        try {
+            cbrApp.configure();
+            CBRCaseBase caseBase = cbrApp.preCycle();
+
+            for (CBRCase c : caseBase.getCases()) {
+                System.out.println(c);
+            }
+
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -136,7 +156,7 @@ public class CocktailRecommender extends javax.swing.JFrame {
 
     private void butCurrentResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butCurrentResetActionPerformed
         switch(evt.getActionCommand()) {
-            case "Query" : break;
+            case "Query" : panels[0] = new SearchPanel(); break;
             case "Importance" : break;
             case "Retain" :  break;
             default:

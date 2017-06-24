@@ -5,6 +5,9 @@
  */
 package cocktail.ui;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author visaac
@@ -31,15 +34,15 @@ public class AdaptationSettingsDialog extends javax.swing.JDialog {
         lblStageTitle = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        butCurrentAction = new javax.swing.JButton();
         butCurrentReset = new javax.swing.JButton();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jCheckBox3 = new javax.swing.JCheckBox();
-        jCheckBox4 = new javax.swing.JCheckBox();
-        jCheckBox5 = new javax.swing.JCheckBox();
-        jCheckBox6 = new javax.swing.JCheckBox();
-        jCheckBox7 = new javax.swing.JCheckBox();
+        butCurrentAction = new javax.swing.JButton();
+        jcbSupplementaryJuice = new javax.swing.JCheckBox();
+        jcbAlcohol = new javax.swing.JCheckBox();
+        jcbEnhancer = new javax.swing.JCheckBox();
+        jcbGarnishing = new javax.swing.JCheckBox();
+        jcbPrimaryJuice = new javax.swing.JCheckBox();
+        jcbPreparation = new javax.swing.JCheckBox();
+        jcbTaste = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Adaptation Settings");
@@ -55,17 +58,17 @@ public class AdaptationSettingsDialog extends javax.swing.JDialog {
         jLabel8.setText("<html>Please choose the attributes that you wish to be included in the adptation process.</html>");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 410, 30));
 
-        butCurrentAction.setText("Save");
-        butCurrentAction.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butCurrentActionActionPerformed(evt);
-            }
-        });
-
         butCurrentReset.setText("Reset");
         butCurrentReset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 butCurrentResetActionPerformed(evt);
+            }
+        });
+
+        butCurrentAction.setText("Save");
+        butCurrentAction.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butCurrentActionActionPerformed(evt);
             }
         });
 
@@ -74,125 +77,139 @@ public class AdaptationSettingsDialog extends javax.swing.JDialog {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(butCurrentAction, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addContainerGap()
                 .addComponent(butCurrentReset, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(butCurrentAction, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(butCurrentAction)
-                    .addComponent(butCurrentReset))
+                    .addComponent(butCurrentReset)
+                    .addComponent(butCurrentAction))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 180, 180, 40));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 180, 50));
 
-        jCheckBox1.setText("Supplementary Juice");
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+        jcbSupplementaryJuice.setText("Supplementary Juice");
+        jcbSupplementaryJuice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
+                jcbSupplementaryJuiceActionPerformed(evt);
             }
         });
-        getContentPane().add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, -1, -1));
+        getContentPane().add(jcbSupplementaryJuice, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, -1, -1));
 
-        jCheckBox2.setText("Alcohol");
-        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
+        jcbAlcohol.setSelected(true);
+        jcbAlcohol.setText("Alcohol");
+        jcbAlcohol.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox2ActionPerformed(evt);
+                jcbAlcoholActionPerformed(evt);
             }
         });
-        getContentPane().add(jCheckBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
+        getContentPane().add(jcbAlcohol, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
 
-        jCheckBox3.setText("Enhancer");
-        jCheckBox3.addActionListener(new java.awt.event.ActionListener() {
+        jcbEnhancer.setText("Enhancer");
+        jcbEnhancer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox3ActionPerformed(evt);
+                jcbEnhancerActionPerformed(evt);
             }
         });
-        getContentPane().add(jCheckBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
+        getContentPane().add(jcbEnhancer, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
 
-        jCheckBox4.setText("Garnishing");
-        jCheckBox4.addActionListener(new java.awt.event.ActionListener() {
+        jcbGarnishing.setText("Garnishing");
+        jcbGarnishing.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox4ActionPerformed(evt);
+                jcbGarnishingActionPerformed(evt);
             }
         });
-        getContentPane().add(jCheckBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 110, -1, -1));
+        getContentPane().add(jcbGarnishing, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 110, -1, -1));
 
-        jCheckBox5.setText("Primary Juice");
-        jCheckBox5.addActionListener(new java.awt.event.ActionListener() {
+        jcbPrimaryJuice.setSelected(true);
+        jcbPrimaryJuice.setText("Primary Juice");
+        jcbPrimaryJuice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox5ActionPerformed(evt);
+                jcbPrimaryJuiceActionPerformed(evt);
             }
         });
-        getContentPane().add(jCheckBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, -1, -1));
+        getContentPane().add(jcbPrimaryJuice, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, -1, -1));
 
-        jCheckBox6.setText("Preparation");
-        jCheckBox6.addActionListener(new java.awt.event.ActionListener() {
+        jcbPreparation.setText("Preparation");
+        jcbPreparation.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox6ActionPerformed(evt);
+                jcbPreparationActionPerformed(evt);
             }
         });
-        getContentPane().add(jCheckBox6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
+        getContentPane().add(jcbPreparation, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
 
-        jCheckBox7.setText("Taste");
-        jCheckBox7.addActionListener(new java.awt.event.ActionListener() {
+        jcbTaste.setSelected(true);
+        jcbTaste.setText("Taste");
+        jcbTaste.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox7ActionPerformed(evt);
+                jcbTasteActionPerformed(evt);
             }
         });
-        getContentPane().add(jCheckBox7, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, -1, -1));
+        getContentPane().add(jcbTaste, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void butCurrentActionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butCurrentActionActionPerformed
-        switch(evt.getActionCommand()) {
-
-            default:
-        }
+        this.setVisible(false);
     }//GEN-LAST:event_butCurrentActionActionPerformed
 
     private void butCurrentResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butCurrentResetActionPerformed
-        switch(evt.getActionCommand()) {
-
-            default:
-        }
+        this.jcbAlcohol.setSelected(false);
+        this.jcbGarnishing.setSelected(false);
+        this.jcbEnhancer.setSelected(false);
+        this.jcbPreparation.setSelected(false);
+        this.jcbPrimaryJuice.setSelected(false);
+        this.jcbSupplementaryJuice.setSelected(false);
+        this.jcbTaste.setSelected(false);
     }//GEN-LAST:event_butCurrentResetActionPerformed
 
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+    private void jcbSupplementaryJuiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbSupplementaryJuiceActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
+    }//GEN-LAST:event_jcbSupplementaryJuiceActionPerformed
 
-    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
+    private void jcbAlcoholActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbAlcoholActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox2ActionPerformed
+    }//GEN-LAST:event_jcbAlcoholActionPerformed
 
-    private void jCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox3ActionPerformed
+    private void jcbEnhancerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbEnhancerActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox3ActionPerformed
+    }//GEN-LAST:event_jcbEnhancerActionPerformed
 
-    private void jCheckBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox4ActionPerformed
+    private void jcbGarnishingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbGarnishingActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox4ActionPerformed
+    }//GEN-LAST:event_jcbGarnishingActionPerformed
 
-    private void jCheckBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox5ActionPerformed
+    private void jcbPrimaryJuiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbPrimaryJuiceActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox5ActionPerformed
+    }//GEN-LAST:event_jcbPrimaryJuiceActionPerformed
 
-    private void jCheckBox6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox6ActionPerformed
+    private void jcbPreparationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbPreparationActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox6ActionPerformed
+    }//GEN-LAST:event_jcbPreparationActionPerformed
 
-    private void jCheckBox7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox7ActionPerformed
+    private void jcbTasteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbTasteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox7ActionPerformed
+    }//GEN-LAST:event_jcbTasteActionPerformed
 
+    public List<String> getAdaptationPreferences() {
+        List<String> selected = new ArrayList<>();
+        if (this.jcbAlcohol.isSelected() == true) selected.add("ALCOHOL");
+        if (this.jcbGarnishing.isSelected() == true) selected.add("GARNISHING");
+        if (this.jcbEnhancer.isSelected() == true) selected.add("ENHANCER");
+        if (this.jcbPreparation.isSelected() == true) selected.add("PREPARATION");
+        if (this.jcbPrimaryJuice.isSelected() == true) selected.add("PRIMARY_JUICE");
+        if (this.jcbSupplementaryJuice.isSelected() == true) selected.add("SUPPLEMENTARY_JUICE");
+        if (this.jcbTaste.isSelected() == true) selected.add("TASTE");
+        return selected;
+    }
     /**
      * @param args the command line arguments
      */
@@ -239,15 +256,15 @@ public class AdaptationSettingsDialog extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton butCurrentAction;
     private javax.swing.JButton butCurrentReset;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JCheckBox jCheckBox3;
-    private javax.swing.JCheckBox jCheckBox4;
-    private javax.swing.JCheckBox jCheckBox5;
-    private javax.swing.JCheckBox jCheckBox6;
-    private javax.swing.JCheckBox jCheckBox7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JCheckBox jcbAlcohol;
+    private javax.swing.JCheckBox jcbEnhancer;
+    private javax.swing.JCheckBox jcbGarnishing;
+    private javax.swing.JCheckBox jcbPreparation;
+    private javax.swing.JCheckBox jcbPrimaryJuice;
+    private javax.swing.JCheckBox jcbSupplementaryJuice;
+    private javax.swing.JCheckBox jcbTaste;
     private javax.swing.JLabel lblStageTitle;
     // End of variables declaration//GEN-END:variables
 }

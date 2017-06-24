@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<TextFileConfiguration>
+    <FilePath>data/ccc_cocktails_v4.txt</FilePath>
+    <Delimiters>;</Delimiters>
+    <DescriptionClassName>cocktail.cbr.CaseDescription</DescriptionClassName>
+    <DescriptionMappings>
+        <Map>CaseId</Map>
+        <Map>RecipeName</Map>
+        <Map>Alcohol</Map>
+        <Map>Enhancer</Map>
+        <Map>PrimaryJuice</Map>
+        <Map>SupplementaryJuice</Map>
+        <Map>Garnishing</Map>
+        <Map>Taste</Map>
+        <Map>Preparation</Map>
+        <Map>Steps</Map>
+    </DescriptionMappings>
+</TextFileConfiguration>

@@ -280,11 +280,11 @@ public class QueryPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_prepStir3ActionPerformed
 
     private void butAddBlackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butAddBlackActionPerformed
-        IngredientSelectorDialog dialog = new IngredientSelectorDialog();
-        dialog.setVisible(true);
-        if (dialog.getSelectedIngredient() != null) {
-            blackListedModel.addElement(dialog.getSelectedIngredient());
-        }
+//        IngredientSelectorDialog dialog = new IngredientSelectorDialog();
+//        dialog.setVisible(true);
+//        if (dialog.getSelectedIngredient() != null) {
+//            blackListedModel.addElement(dialog.getSelectedIngredient());
+//        }
     }//GEN-LAST:event_butAddBlackActionPerformed
 
     private void listIngredientsWhiteValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listIngredientsWhiteValueChanged
@@ -292,11 +292,11 @@ public class QueryPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_listIngredientsWhiteValueChanged
 
     private void butAddWhiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butAddWhiteActionPerformed
-        IngredientSelectorDialog dialog = new IngredientSelectorDialog();
-        dialog.setVisible(true);
-        if (dialog.getSelectedIngredient() != null) {
-            whiteListedModel.addElement(dialog.getSelectedIngredient());
-        }
+//        IngredientSelectorDialog dialog = new IngredientSelectorDialog();
+//        dialog.setVisible(true);
+//        if (dialog.getSelectedIngredient() != null) {
+//            whiteListedModel.addElement(dialog.getSelectedIngredient());
+//        }
     }//GEN-LAST:event_butAddWhiteActionPerformed
     private DefaultListModel<String> blackListedModel = new DefaultListModel<>();
     private DefaultListModel<String> whiteListedModel = new DefaultListModel<>();

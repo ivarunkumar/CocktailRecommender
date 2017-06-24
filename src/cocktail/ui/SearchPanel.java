@@ -35,24 +35,24 @@ public class SearchPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        Avoid = new javax.swing.JCheckBox();
-        jButton2 = new javax.swing.JButton();
-        Avoid1 = new javax.swing.JCheckBox();
-        jButton3 = new javax.swing.JButton();
-        Avoid2 = new javax.swing.JCheckBox();
+        butAlcoholSelector = new javax.swing.JButton();
+        jcbAvoidPrimaryJuice = new javax.swing.JCheckBox();
+        butPrimaryJuiceSelector = new javax.swing.JButton();
+        jcbAvoidAlcohol = new javax.swing.JCheckBox();
+        butSupplementaryJuiceSelector = new javax.swing.JButton();
+        jcbAvoidSupplementaryJuice = new javax.swing.JCheckBox();
         jLabel4 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
-        Avoid3 = new javax.swing.JCheckBox();
+        butGarnishingSelector = new javax.swing.JButton();
+        jcbAvoidGarnishing = new javax.swing.JCheckBox();
         jLabel5 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
-        Avoid4 = new javax.swing.JCheckBox();
+        butEnhancerSelector = new javax.swing.JButton();
+        jcbAvoidEnhancer = new javax.swing.JCheckBox();
         jLabel6 = new javax.swing.JLabel();
-        jButton6 = new javax.swing.JButton();
-        Avoid5 = new javax.swing.JCheckBox();
+        butTasteSelector = new javax.swing.JButton();
+        jcbAvoidTaste = new javax.swing.JCheckBox();
         jLabel7 = new javax.swing.JLabel();
-        jButton7 = new javax.swing.JButton();
-        Avoid6 = new javax.swing.JCheckBox();
+        butPreparationSelector = new javax.swing.JButton();
+        jcbAvoidPreparation = new javax.swing.JCheckBox();
         jLabel8 = new javax.swing.JLabel();
 
         jLabel1.setText("Alcohol");
@@ -61,105 +61,110 @@ public class SearchPanel extends javax.swing.JPanel {
 
         jLabel3.setText("Supplementary Juice");
 
-        jButton1.setText("Choose Alcohol");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        butAlcoholSelector.setText("Choose Alcohol");
+        butAlcoholSelector.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                butAlcoholSelectorActionPerformed(evt);
             }
         });
 
-        Avoid.setText("Avoid");
-        Avoid.addActionListener(new java.awt.event.ActionListener() {
+        jcbAvoidPrimaryJuice.setText("Avoid");
+        jcbAvoidPrimaryJuice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AvoidActionPerformed(evt);
+                jcbAvoidPrimaryJuiceActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Choose Primary Juice");
-
-        Avoid1.setText("Avoid");
-        Avoid1.addActionListener(new java.awt.event.ActionListener() {
+        butPrimaryJuiceSelector.setText("Choose Primary Juice");
+        butPrimaryJuiceSelector.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Avoid1ActionPerformed(evt);
+                butPrimaryJuiceSelectorActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Choose Supplementary Juice");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jcbAvoidAlcohol.setText("Avoid");
+        jcbAvoidAlcohol.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jcbAvoidAlcoholActionPerformed(evt);
             }
         });
 
-        Avoid2.setText("Avoid");
-        Avoid2.addActionListener(new java.awt.event.ActionListener() {
+        butSupplementaryJuiceSelector.setText("Choose Supplementary Juice");
+        butSupplementaryJuiceSelector.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Avoid2ActionPerformed(evt);
+                butSupplementaryJuiceSelectorActionPerformed(evt);
+            }
+        });
+
+        jcbAvoidSupplementaryJuice.setText("Avoid");
+        jcbAvoidSupplementaryJuice.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbAvoidSupplementaryJuiceActionPerformed(evt);
             }
         });
 
         jLabel4.setText("Garnishing");
 
-        jButton4.setText("Choose Garnishing");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        butGarnishingSelector.setText("Choose Garnishing");
+        butGarnishingSelector.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                butGarnishingSelectorActionPerformed(evt);
             }
         });
 
-        Avoid3.setText("Avoid");
-        Avoid3.addActionListener(new java.awt.event.ActionListener() {
+        jcbAvoidGarnishing.setText("Avoid");
+        jcbAvoidGarnishing.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Avoid3ActionPerformed(evt);
+                jcbAvoidGarnishingActionPerformed(evt);
             }
         });
 
         jLabel5.setText("Enhancer");
 
-        jButton5.setText("Choose Enhancer");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        butEnhancerSelector.setText("Choose Enhancer");
+        butEnhancerSelector.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                butEnhancerSelectorActionPerformed(evt);
             }
         });
 
-        Avoid4.setText("Avoid");
-        Avoid4.addActionListener(new java.awt.event.ActionListener() {
+        jcbAvoidEnhancer.setText("Avoid");
+        jcbAvoidEnhancer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Avoid4ActionPerformed(evt);
+                jcbAvoidEnhancerActionPerformed(evt);
             }
         });
 
         jLabel6.setText("Taste Preference");
 
-        jButton6.setText("Choose Taste Preference");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        butTasteSelector.setText("Choose Taste Preference");
+        butTasteSelector.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                butTasteSelectorActionPerformed(evt);
             }
         });
 
-        Avoid5.setText("Avoid");
-        Avoid5.addActionListener(new java.awt.event.ActionListener() {
+        jcbAvoidTaste.setText("Avoid");
+        jcbAvoidTaste.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Avoid5ActionPerformed(evt);
+                jcbAvoidTasteActionPerformed(evt);
             }
         });
 
         jLabel7.setText("Preparation Method");
 
-        jButton7.setText("Choose Preparation Method");
-        jButton7.setActionCommand("Choose Preparation");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        butPreparationSelector.setText("Choose Preparation Method");
+        butPreparationSelector.setActionCommand("Choose Preparation");
+        butPreparationSelector.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                butPreparationSelectorActionPerformed(evt);
             }
         });
 
-        Avoid6.setText("Avoid");
-        Avoid6.addActionListener(new java.awt.event.ActionListener() {
+        jcbAvoidPreparation.setText("Avoid");
+        jcbAvoidPreparation.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Avoid6ActionPerformed(evt);
+                jcbAvoidPreparationActionPerformed(evt);
             }
         });
 
@@ -172,9 +177,7 @@ public class SearchPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0))
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -187,22 +190,22 @@ public class SearchPanel extends javax.swing.JPanel {
                                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(butGarnishingSelector, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
+                            .addComponent(butSupplementaryJuiceSelector, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(butPreparationSelector, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(butTasteSelector, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(butEnhancerSelector, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(butPrimaryJuiceSelector, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(butAlcoholSelector, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Avoid6)
-                            .addComponent(Avoid5)
-                            .addComponent(Avoid3)
-                            .addComponent(Avoid2)
-                            .addComponent(Avoid)
-                            .addComponent(Avoid4)
-                            .addComponent(Avoid1))
+                            .addComponent(jcbAvoidPreparation)
+                            .addComponent(jcbAvoidTaste)
+                            .addComponent(jcbAvoidGarnishing)
+                            .addComponent(jcbAvoidSupplementaryJuice)
+                            .addComponent(jcbAvoidPrimaryJuice)
+                            .addComponent(jcbAvoidEnhancer)
+                            .addComponent(jcbAvoidAlcohol))
                         .addGap(50, 50, 50))))
         );
         layout.setVerticalGroup(
@@ -211,113 +214,126 @@ public class SearchPanel extends javax.swing.JPanel {
                 .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jButton1)
-                    .addComponent(Avoid1))
+                    .addComponent(butAlcoholSelector)
+                    .addComponent(jcbAvoidAlcohol))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jButton5)
-                    .addComponent(Avoid4))
+                    .addComponent(butEnhancerSelector)
+                    .addComponent(jcbAvoidEnhancer))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jButton2)
-                    .addComponent(Avoid))
+                    .addComponent(butPrimaryJuiceSelector)
+                    .addComponent(jcbAvoidPrimaryJuice))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jButton3)
-                    .addComponent(Avoid2))
+                    .addComponent(butSupplementaryJuiceSelector)
+                    .addComponent(jcbAvoidSupplementaryJuice))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jButton4)
-                    .addComponent(Avoid3))
+                    .addComponent(butGarnishingSelector)
+                    .addComponent(jcbAvoidGarnishing))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jButton6)
-                    .addComponent(Avoid5))
+                    .addComponent(butTasteSelector)
+                    .addComponent(jcbAvoidTaste))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel7)
-                        .addComponent(jButton7))
-                    .addComponent(Avoid6))
+                        .addComponent(butPreparationSelector))
+                    .addComponent(jcbAvoidPreparation))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(50, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void butAlcoholSelectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butAlcoholSelectorActionPerformed
+        IngredientSelectorDialog dialog = new IngredientSelectorDialog(IngredientSelectorDialog.Type.Alcohol);
+        dialog.setVisible(true);
+        if (dialog.getSelectedIngredient() != null) {
+            butAlcoholSelector.setText(dialog.getSelectedIngredient());
+        }
+    }//GEN-LAST:event_butAlcoholSelectorActionPerformed
 
-    private void AvoidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AvoidActionPerformed
+    private void jcbAvoidPrimaryJuiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbAvoidPrimaryJuiceActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_AvoidActionPerformed
+    }//GEN-LAST:event_jcbAvoidPrimaryJuiceActionPerformed
 
-    private void Avoid1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Avoid1ActionPerformed
+    private void jcbAvoidAlcoholActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbAvoidAlcoholActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Avoid1ActionPerformed
+    }//GEN-LAST:event_jcbAvoidAlcoholActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void butSupplementaryJuiceSelectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butSupplementaryJuiceSelectorActionPerformed
+        IngredientSelectorDialog dialog = new IngredientSelectorDialog(IngredientSelectorDialog.Type.SecondaryJuice);
+        dialog.setVisible(true);
+        if (dialog.getSelectedIngredient() != null) {
+            butSupplementaryJuiceSelector.setText(dialog.getSelectedIngredient());
+        }
+    }//GEN-LAST:event_butSupplementaryJuiceSelectorActionPerformed
 
-    private void Avoid2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Avoid2ActionPerformed
+    private void jcbAvoidSupplementaryJuiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbAvoidSupplementaryJuiceActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Avoid2ActionPerformed
+    }//GEN-LAST:event_jcbAvoidSupplementaryJuiceActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void butGarnishingSelectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butGarnishingSelectorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_butGarnishingSelectorActionPerformed
 
-    private void Avoid3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Avoid3ActionPerformed
+    private void jcbAvoidGarnishingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbAvoidGarnishingActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Avoid3ActionPerformed
+    }//GEN-LAST:event_jcbAvoidGarnishingActionPerformed
 
-    private void Avoid4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Avoid4ActionPerformed
+    private void jcbAvoidEnhancerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbAvoidEnhancerActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Avoid4ActionPerformed
+    }//GEN-LAST:event_jcbAvoidEnhancerActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    private void butEnhancerSelectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butEnhancerSelectorActionPerformed
+        IngredientSelectorDialog dialog = new IngredientSelectorDialog(IngredientSelectorDialog.Type.Enhancer);
+        dialog.setVisible(true);
+        if (dialog.getSelectedIngredient() != null) {
+            butEnhancerSelector.setText(dialog.getSelectedIngredient());
+        }
+    }//GEN-LAST:event_butEnhancerSelectorActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void butTasteSelectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butTasteSelectorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_butTasteSelectorActionPerformed
 
-    private void Avoid5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Avoid5ActionPerformed
+    private void jcbAvoidTasteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbAvoidTasteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Avoid5ActionPerformed
+    }//GEN-LAST:event_jcbAvoidTasteActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void butPreparationSelectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butPreparationSelectorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_butPreparationSelectorActionPerformed
 
-    private void Avoid6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Avoid6ActionPerformed
+    private void jcbAvoidPreparationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbAvoidPreparationActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Avoid6ActionPerformed
+    }//GEN-LAST:event_jcbAvoidPreparationActionPerformed
+
+    private void butPrimaryJuiceSelectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butPrimaryJuiceSelectorActionPerformed
+        IngredientSelectorDialog dialog = new IngredientSelectorDialog(IngredientSelectorDialog.Type.PrimaryJuice);
+        dialog.setVisible(true);
+        if (dialog.getSelectedIngredient() != null) {
+            butPrimaryJuiceSelector.setText(dialog.getSelectedIngredient());
+        }
+    }//GEN-LAST:event_butPrimaryJuiceSelectorActionPerformed
     private DefaultListModel<String> blackListedModel = new DefaultListModel<>();
     private DefaultListModel<String> whiteListedModel = new DefaultListModel<>();
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JCheckBox Avoid;
-    private javax.swing.JCheckBox Avoid1;
-    private javax.swing.JCheckBox Avoid2;
-    private javax.swing.JCheckBox Avoid3;
-    private javax.swing.JCheckBox Avoid4;
-    private javax.swing.JCheckBox Avoid5;
-    private javax.swing.JCheckBox Avoid6;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
+    private javax.swing.JButton butAlcoholSelector;
+    private javax.swing.JButton butEnhancerSelector;
+    private javax.swing.JButton butGarnishingSelector;
+    private javax.swing.JButton butPreparationSelector;
+    private javax.swing.JButton butPrimaryJuiceSelector;
+    private javax.swing.JButton butSupplementaryJuiceSelector;
+    private javax.swing.JButton butTasteSelector;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -326,5 +342,12 @@ public class SearchPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JCheckBox jcbAvoidAlcohol;
+    private javax.swing.JCheckBox jcbAvoidEnhancer;
+    private javax.swing.JCheckBox jcbAvoidGarnishing;
+    private javax.swing.JCheckBox jcbAvoidPreparation;
+    private javax.swing.JCheckBox jcbAvoidPrimaryJuice;
+    private javax.swing.JCheckBox jcbAvoidSupplementaryJuice;
+    private javax.swing.JCheckBox jcbAvoidTaste;
     // End of variables declaration//GEN-END:variables
 }
