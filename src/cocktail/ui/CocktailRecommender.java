@@ -6,11 +6,19 @@
 package cocktail.ui;
 
 import cocktail.cbr.CBRApplication;
+import cocktail.cbr.CaseDescription;
 import java.awt.BorderLayout;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JPanel;
+import jcolibri.cbrcore.Attribute;
 import jcolibri.cbrcore.CBRCase;
 import jcolibri.cbrcore.CBRCaseBase;
+import jcolibri.cbrcore.CBRQuery;
 import jcolibri.exception.ExecutionException;
+import jcolibri.method.retrieve.NNretrieval.NNConfig;
+import jcolibri.method.retrieve.NNretrieval.similarity.local.EqualsStringIgnoreCase;
 
 /**
  *
@@ -19,8 +27,13 @@ import jcolibri.exception.ExecutionException;
 public class CocktailRecommender extends javax.swing.JFrame {
 
     private AdaptationSettingsDialog settingsDialog = new AdaptationSettingsDialog(this);
+    
+    private SearchPanel searchPanel = new SearchPanel();
+    private ImportanceConfigPanel importanceCfgPanel = new ImportanceConfigPanel();
+    private OutcomePanel outcomePanel = new OutcomePanel();
+    
     // Keep the following three attributes in synch
-    private JPanel[] panels = {new SearchPanel(), new ImportanceConfigPanel(), new OutcomePanel()};
+    private JPanel[] panels = {searchPanel, importanceCfgPanel, outcomePanel};
     private static final String[] actionButtonLables = {"Search", "Apply", "Retain"};
     private static final String[] resetButtonLables = {"Reset", "Default", "Refresh"};
     private static final String[] actionCommand= {"Query", "Importance", "Refresh"};
@@ -130,6 +143,12 @@ public class CocktailRecommender extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 510, -1, 40));
+
+        mainTabPane.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                mainTabPaneStateChanged(evt);
+            }
+        });
         getContentPane().add(mainTabPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 570, 430));
 
         lblStageTitle.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -147,8 +166,15 @@ public class CocktailRecommender extends javax.swing.JFrame {
 
     private void butCurrentActionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butCurrentActionActionPerformed
         switch(evt.getActionCommand()) {
-            case "Query" : activatePanel(1); break;
-            case "Importance" : activatePanel(2); break;
+            case "Query" : {
+                activatePanel(1); 
+                break; 
+            }
+            case "Importance" : {
+                activatePanel(2);
+                invokeCBR();                
+                break;
+            } 
             case "Retain" : break;
             default:
         }
@@ -156,8 +182,14 @@ public class CocktailRecommender extends javax.swing.JFrame {
 
     private void butCurrentResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butCurrentResetActionPerformed
         switch(evt.getActionCommand()) {
-            case "Query" : panels[0] = new SearchPanel(); break;
-            case "Importance" : break;
+            case "Query" : {
+                searchPanel.resetSelections();
+                break;
+            } 
+            case "Importance" : {
+                importanceCfgPanel.resetSelections();
+                break;
+            }
             case "Retain" :  break;
             default:
         }
@@ -167,6 +199,97 @@ public class CocktailRecommender extends javax.swing.JFrame {
         settingsDialog.setVisible(true);
     }//GEN-LAST:event_butSettingsActionPerformed
 
+    private void mainTabPaneStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_mainTabPaneStateChanged
+    }//GEN-LAST:event_mainTabPaneStateChanged
+    private NNConfig buildSimilarityConfig() {
+        Map<Filter, Integer> filterWeights = importanceCfgPanel.getFilterWeights();
+        
+        NNConfig simConfig = new NNConfig();
+        simConfig.setDescriptionSimFunction(new jcolibri.method.retrieve.NNretrieval.similarity.global.Average());
+
+        Attribute attribute0 = new Attribute("Alcohol", CaseDescription.class);
+        simConfig.addMapping(attribute0, new EqualsStringIgnoreCase());
+        simConfig.setWeight(attribute0, filterWeights.get(Filter.Alcohol).doubleValue()/100);
+
+        Attribute attribute1 = new Attribute("Enhancer", CaseDescription.class);
+        simConfig.addMapping(attribute1, new EqualsStringIgnoreCase());
+        simConfig.setWeight(attribute1, filterWeights.get(Filter.Enhancer).doubleValue()/100);
+
+        Attribute attribute2 = new Attribute("PrimaryJuice", CaseDescription.class);
+        simConfig.addMapping(attribute2, new EqualsStringIgnoreCase());
+        simConfig.setWeight(attribute2, filterWeights.get(Filter.PrimaryJuice).doubleValue()/100);
+
+        Attribute attribute3 = new Attribute("SupplementaryJuice", CaseDescription.class);
+        simConfig.addMapping(attribute3, new EqualsStringIgnoreCase());
+        simConfig.setWeight(attribute3, filterWeights.get(Filter.SupplementaryJuice).doubleValue()/100);
+        
+        Attribute attribute4 = new Attribute("Garnishing", CaseDescription.class);
+        simConfig.addMapping(attribute4, new EqualsStringIgnoreCase());
+        simConfig.setWeight(attribute4, filterWeights.get(Filter.Garnishing).doubleValue()/100);
+        
+        Attribute attribute5 = new Attribute("Taste", CaseDescription.class);
+        simConfig.addMapping(attribute5, new EqualsStringIgnoreCase());
+        simConfig.setWeight(attribute5, filterWeights.get(Filter.Taste).doubleValue()/100);
+        
+        Attribute attribute6 = new Attribute("Preparation", CaseDescription.class);
+        simConfig.addMapping(attribute6, new EqualsStringIgnoreCase());
+        simConfig.setWeight(attribute6, filterWeights.get(Filter.Preparation).doubleValue()/100);
+        
+        return simConfig;
+        
+    }
+    
+    private void invokeCBR() {
+        CBRQuery query = getQuery();
+        NNConfig similarityConfig = buildSimilarityConfig();
+        cbrApp.setSimilarityConfig(similarityConfig);
+        try {
+            cbrApp.cycle(query);
+        } catch (ExecutionException ex) {
+            Logger.getLogger(CocktailRecommender.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+    } 
+    
+    private CBRQuery getQuery()
+    {   
+        Map<Filter, String> filters = searchPanel.getFilters();
+        CaseDescription desc = new CaseDescription();
+        
+        if (filters.containsKey(Filter.Alcohol)) {
+            desc.setAlcohol(filters.get(Filter.Alcohol));
+        }
+        
+        if (filters.containsKey(Filter.Enhancer)) {
+            desc.setEnhancer(filters.get(Filter.Enhancer));
+        }
+        
+        if (filters.containsKey(Filter.Garnishing)) {
+            desc.setGarnishing(filters.get(Filter.Garnishing));
+        }
+        
+        if (filters.containsKey(Filter.PrimaryJuice)) {
+            desc.setPrimaryJuice(filters.get(Filter.PrimaryJuice));
+        }
+        
+        if (filters.containsKey(Filter.SupplementaryJuice)) {
+            desc.setSupplementaryJuice(filters.get(Filter.SupplementaryJuice));
+        }
+        
+        if (filters.containsKey(Filter.Preparation)) {
+            desc.setPreparation(filters.get(Filter.Preparation));
+        }
+        
+        if (filters.containsKey(Filter.Taste)) {
+            desc.setTaste(filters.get(Filter.Taste));
+        }
+        
+        CBRQuery query = new CBRQuery();
+        query.setDescription(desc);
+
+        return query;
+    }  
     /**
      * @param args the command line arguments
      */

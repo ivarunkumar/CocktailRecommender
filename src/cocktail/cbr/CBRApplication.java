@@ -26,7 +26,7 @@ public class CBRApplication implements StandardCBRApplication {
 
     @Generated(value = {"ColibriStudio"})
     CBRCaseBase casebase;
-
+    NNConfig similarityConfig;
     //******************************************************************/
     // Configuration
     //******************************************************************/
@@ -64,42 +64,42 @@ public class CBRApplication implements StandardCBRApplication {
     /**
      * Configures the similarity
      */
-    @Generated(value = {"CS-Similarity"})
-    private NNConfig getSimilarityConfig() {
-        NNConfig simConfig = new NNConfig();
-        simConfig.setDescriptionSimFunction(new jcolibri.method.retrieve.NNretrieval.similarity.global.Average());
-
-        Attribute attribute0 = new Attribute("Alcohol", CaseDescription.class);
-        simConfig.addMapping(attribute0, new EqualsStringIgnoreCase());
-        simConfig.setWeight(attribute0, 1.00);
-
-        Attribute attribute1 = new Attribute("Enhancer", CaseDescription.class);
-        simConfig.addMapping(attribute1, new EqualsStringIgnoreCase());
-        simConfig.setWeight(attribute1, 1.00);
-
-        Attribute attribute2 = new Attribute("PrimaryJuice", CaseDescription.class);
-        simConfig.addMapping(attribute2, new EqualsStringIgnoreCase());
-        simConfig.setWeight(attribute2, 1.00);
-
-        Attribute attribute3 = new Attribute("SupplementaryJuice", CaseDescription.class);
-        simConfig.addMapping(attribute3, new EqualsStringIgnoreCase());
-        simConfig.setWeight(attribute3, 1.00);
-        
-        Attribute attribute4 = new Attribute("Garnishing", CaseDescription.class);
-        simConfig.addMapping(attribute4, new EqualsStringIgnoreCase());
-        simConfig.setWeight(attribute4, 1.00);
-        
-        Attribute attribute5 = new Attribute("Taste", CaseDescription.class);
-        simConfig.addMapping(attribute5, new EqualsStringIgnoreCase());
-        simConfig.setWeight(attribute5, 1.00);
-        
-        Attribute attribute6 = new Attribute("Preparation", CaseDescription.class);
-        simConfig.addMapping(attribute6, new EqualsStringIgnoreCase());
-        simConfig.setWeight(attribute6, 1.00);
-        
-        return simConfig;
-    }
-
+//    @Generated(value = {"CS-Similarity"})
+//    private NNConfig getSimilarityConfig() {
+//        NNConfig simConfig = new NNConfig();
+//        simConfig.setDescriptionSimFunction(new jcolibri.method.retrieve.NNretrieval.similarity.global.Average());
+//
+//        Attribute attribute0 = new Attribute("Alcohol", CaseDescription.class);
+//        simConfig.addMapping(attribute0, new EqualsStringIgnoreCase());
+//        simConfig.setWeight(attribute0, 1.00);
+//
+//        Attribute attribute1 = new Attribute("Enhancer", CaseDescription.class);
+//        simConfig.addMapping(attribute1, new EqualsStringIgnoreCase());
+//        simConfig.setWeight(attribute1, 1.00);
+//
+//        Attribute attribute2 = new Attribute("PrimaryJuice", CaseDescription.class);
+//        simConfig.addMapping(attribute2, new EqualsStringIgnoreCase());
+//        simConfig.setWeight(attribute2, 1.00);
+//
+//        Attribute attribute3 = new Attribute("SupplementaryJuice", CaseDescription.class);
+//        simConfig.addMapping(attribute3, new EqualsStringIgnoreCase());
+//        simConfig.setWeight(attribute3, 1.00);
+//        
+//        Attribute attribute4 = new Attribute("Garnishing", CaseDescription.class);
+//        simConfig.addMapping(attribute4, new EqualsStringIgnoreCase());
+//        simConfig.setWeight(attribute4, 1.00);
+//        
+//        Attribute attribute5 = new Attribute("Taste", CaseDescription.class);
+//        simConfig.addMapping(attribute5, new EqualsStringIgnoreCase());
+//        simConfig.setWeight(attribute5, 1.00);
+//        
+//        Attribute attribute6 = new Attribute("Preparation", CaseDescription.class);
+//        simConfig.addMapping(attribute6, new EqualsStringIgnoreCase());
+//        simConfig.setWeight(attribute6, 1.00);
+//        
+//        return simConfig;
+//    }
+  
     //******************************************************************/
     // Methods
     //******************************************************************/
@@ -113,12 +113,12 @@ public class CBRApplication implements StandardCBRApplication {
     @Generated(value = {"ColibriStudio"})
     @Override
     public void cycle(CBRQuery query) throws ExecutionException {
-        NNConfig simConfig = getSimilarityConfig();
         Collection<RetrievalResult> eval = NNScoringMethod.evaluateSimilarity(
-                casebase.getCases(), query, simConfig);
+                casebase.getCases(), query, similarityConfig);
         eval = SelectCases.selectTopKRR(eval, 5);
         System.out.println("Retrieved cases:");
         for (RetrievalResult nse : eval) {
+//            CBRCase _case = nse.get_case();
             System.out.println(nse);
         }
     }
@@ -127,5 +127,9 @@ public class CBRApplication implements StandardCBRApplication {
     @Override
     public void postCycle() throws ExecutionException {
         connector.close();
+    }
+
+    public void setSimilarityConfig(NNConfig similarityConfig) {
+        this.similarityConfig = similarityConfig;
     }
 }

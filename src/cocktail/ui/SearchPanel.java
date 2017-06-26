@@ -7,6 +7,8 @@ package cocktail.ui;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
+import java.util.HashMap;
+import java.util.Map;
 import javax.swing.DefaultListModel;
 import javax.swing.JComponent;
 
@@ -16,6 +18,7 @@ import javax.swing.JComponent;
  */
 public class SearchPanel extends javax.swing.JPanel {
 
+    private Map<Filter, String> chosenFiltersAndValues = new HashMap<>();
     /**
      * Creates new form QueryPanel
      */
@@ -23,6 +26,9 @@ public class SearchPanel extends javax.swing.JPanel {
         initComponents();
     }
 
+    public Map<Filter, String>  getFilters() {
+        return chosenFiltersAndValues;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -254,10 +260,15 @@ public class SearchPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void butAlcoholSelectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butAlcoholSelectorActionPerformed
-        IngredientSelectorDialog dialog = new IngredientSelectorDialog(IngredientSelectorDialog.Type.Alcohol);
+        IngredientSelectorDialog dialog = new IngredientSelectorDialog(Filter.Alcohol);
         dialog.setVisible(true);
         if (dialog.getSelectedIngredient() != null) {
             butAlcoholSelector.setText(dialog.getSelectedIngredient());
+            if (chosenFiltersAndValues.containsKey(Filter.Alcohol)) {
+                chosenFiltersAndValues.replace(Filter.Alcohol, dialog.getSelectedIngredient());
+            } else {
+                chosenFiltersAndValues.put(Filter.Alcohol, dialog.getSelectedIngredient());
+            }
         }
     }//GEN-LAST:event_butAlcoholSelectorActionPerformed
 
@@ -270,11 +281,16 @@ public class SearchPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jcbAvoidAlcoholActionPerformed
 
     private void butSupplementaryJuiceSelectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butSupplementaryJuiceSelectorActionPerformed
-        IngredientSelectorDialog dialog = new IngredientSelectorDialog(IngredientSelectorDialog.Type.SecondaryJuice);
+        IngredientSelectorDialog dialog = new IngredientSelectorDialog(Filter.SupplementaryJuice);
         dialog.setVisible(true);
         if (dialog.getSelectedIngredient() != null) {
             butSupplementaryJuiceSelector.setText(dialog.getSelectedIngredient());
-        }
+            if (chosenFiltersAndValues.containsKey(Filter.SupplementaryJuice)) {
+                chosenFiltersAndValues.replace(Filter.SupplementaryJuice, dialog.getSelectedIngredient());
+            } else {
+                chosenFiltersAndValues.put(Filter.SupplementaryJuice, dialog.getSelectedIngredient());
+            }
+        } 
     }//GEN-LAST:event_butSupplementaryJuiceSelectorActionPerformed
 
     private void jcbAvoidSupplementaryJuiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbAvoidSupplementaryJuiceActionPerformed
@@ -282,7 +298,16 @@ public class SearchPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jcbAvoidSupplementaryJuiceActionPerformed
 
     private void butGarnishingSelectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butGarnishingSelectorActionPerformed
-        // TODO add your handling code here:
+        IngredientSelectorDialog dialog = new IngredientSelectorDialog(Filter.Garnishing);
+        dialog.setVisible(true);
+        if (dialog.getSelectedIngredient() != null) {
+            butGarnishingSelector.setText(dialog.getSelectedIngredient());
+            if (chosenFiltersAndValues.containsKey(Filter.Garnishing)) {
+                chosenFiltersAndValues.replace(Filter.Garnishing, dialog.getSelectedIngredient());
+            } else {
+                chosenFiltersAndValues.put(Filter.Garnishing, dialog.getSelectedIngredient());
+            }
+        } 
     }//GEN-LAST:event_butGarnishingSelectorActionPerformed
 
     private void jcbAvoidGarnishingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbAvoidGarnishingActionPerformed
@@ -294,15 +319,30 @@ public class SearchPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jcbAvoidEnhancerActionPerformed
 
     private void butEnhancerSelectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butEnhancerSelectorActionPerformed
-        IngredientSelectorDialog dialog = new IngredientSelectorDialog(IngredientSelectorDialog.Type.Enhancer);
+        IngredientSelectorDialog dialog = new IngredientSelectorDialog(Filter.Enhancer);
         dialog.setVisible(true);
         if (dialog.getSelectedIngredient() != null) {
             butEnhancerSelector.setText(dialog.getSelectedIngredient());
+            if (chosenFiltersAndValues.containsKey(Filter.Enhancer)) {
+                chosenFiltersAndValues.replace(Filter.Enhancer, dialog.getSelectedIngredient());
+            } else {
+                chosenFiltersAndValues.put(Filter.Enhancer, dialog.getSelectedIngredient());
+            }
         }
+
     }//GEN-LAST:event_butEnhancerSelectorActionPerformed
 
     private void butTasteSelectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butTasteSelectorActionPerformed
-        // TODO add your handling code here:
+        IngredientSelectorDialog dialog = new IngredientSelectorDialog(Filter.Taste);
+        dialog.setVisible(true);
+        if (dialog.getSelectedIngredient() != null) {
+            butTasteSelector.setText(dialog.getSelectedIngredient());
+            if (chosenFiltersAndValues.containsKey(Filter.Taste)) {
+                chosenFiltersAndValues.replace(Filter.Taste, dialog.getSelectedIngredient());
+            } else {
+                chosenFiltersAndValues.put(Filter.Taste, dialog.getSelectedIngredient());
+            }
+        }
     }//GEN-LAST:event_butTasteSelectorActionPerformed
 
     private void jcbAvoidTasteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbAvoidTasteActionPerformed
@@ -310,7 +350,16 @@ public class SearchPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jcbAvoidTasteActionPerformed
 
     private void butPreparationSelectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butPreparationSelectorActionPerformed
-        // TODO add your handling code here:
+        IngredientSelectorDialog dialog = new IngredientSelectorDialog(Filter.Preparation);
+        dialog.setVisible(true);
+        if (dialog.getSelectedIngredient() != null) {
+            butPreparationSelector.setText(dialog.getSelectedIngredient());
+            if (chosenFiltersAndValues.containsKey(Filter.Preparation)) {
+                chosenFiltersAndValues.replace(Filter.Preparation, dialog.getSelectedIngredient());
+            } else {
+                chosenFiltersAndValues.put(Filter.Preparation, dialog.getSelectedIngredient());
+            }
+        }
     }//GEN-LAST:event_butPreparationSelectorActionPerformed
 
     private void jcbAvoidPreparationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbAvoidPreparationActionPerformed
@@ -318,11 +367,19 @@ public class SearchPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jcbAvoidPreparationActionPerformed
 
     private void butPrimaryJuiceSelectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butPrimaryJuiceSelectorActionPerformed
-        IngredientSelectorDialog dialog = new IngredientSelectorDialog(IngredientSelectorDialog.Type.PrimaryJuice);
+        IngredientSelectorDialog dialog = new IngredientSelectorDialog(Filter.PrimaryJuice);
         dialog.setVisible(true);
         if (dialog.getSelectedIngredient() != null) {
             butPrimaryJuiceSelector.setText(dialog.getSelectedIngredient());
         }
+        if (dialog.getSelectedIngredient() != null) {
+            butPrimaryJuiceSelector.setText(dialog.getSelectedIngredient());
+            if (chosenFiltersAndValues.containsKey(Filter.PrimaryJuice)) {
+                chosenFiltersAndValues.replace(Filter.PrimaryJuice, dialog.getSelectedIngredient());
+            } else {
+                chosenFiltersAndValues.put(Filter.PrimaryJuice, dialog.getSelectedIngredient());
+            }
+        }        
     }//GEN-LAST:event_butPrimaryJuiceSelectorActionPerformed
     private DefaultListModel<String> blackListedModel = new DefaultListModel<>();
     private DefaultListModel<String> whiteListedModel = new DefaultListModel<>();
@@ -350,4 +407,23 @@ public class SearchPanel extends javax.swing.JPanel {
     private javax.swing.JCheckBox jcbAvoidSupplementaryJuice;
     private javax.swing.JCheckBox jcbAvoidTaste;
     // End of variables declaration//GEN-END:variables
+
+    void resetSelections() {
+        chosenFiltersAndValues.clear();
+        butAlcoholSelector.setText("Choose Alcohol");
+        butEnhancerSelector.setText("Choose Enhancer");
+        butGarnishingSelector.setText("Choose Garnishing");
+        butPreparationSelector.setText("Choose Preparation Method");
+        butPrimaryJuiceSelector.setText("Choose Primary Juice");
+        butSupplementaryJuiceSelector.setText("Choose Supplementary Juice");
+        butTasteSelector.setText("Choose Taste Preference");
+        
+        jcbAvoidAlcohol.setSelected(false);
+        jcbAvoidEnhancer.setSelected(false);
+        jcbAvoidGarnishing.setSelected(false);
+        jcbAvoidPreparation.setSelected(false);
+        jcbAvoidPrimaryJuice.setSelected(false);
+        jcbAvoidSupplementaryJuice.setSelected(false);
+        jcbAvoidTaste.setSelected(false);
+    }
 }

@@ -7,6 +7,10 @@ package cocktail.ui;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JComponent;
 
@@ -40,13 +44,13 @@ public class ImportanceConfigPanel extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jSlider1 = new javax.swing.JSlider();
-        jSlider2 = new javax.swing.JSlider();
-        jSlider3 = new javax.swing.JSlider();
-        jSlider4 = new javax.swing.JSlider();
-        jSlider5 = new javax.swing.JSlider();
-        jSlider6 = new javax.swing.JSlider();
-        jSlider7 = new javax.swing.JSlider();
+        sliderEnhancer = new javax.swing.JSlider();
+        sliderAlcohol = new javax.swing.JSlider();
+        sliderSupplementaryJuice = new javax.swing.JSlider();
+        sliderPrimaryJuice = new javax.swing.JSlider();
+        sliderGarnishing = new javax.swing.JSlider();
+        sliderPreparation = new javax.swing.JSlider();
+        sliderTaste = new javax.swing.JSlider();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -73,13 +77,13 @@ public class ImportanceConfigPanel extends javax.swing.JPanel {
 
         jLabel8.setText("<html>Please use the sliders to choose the importance of each option. By default, all options will be given equal importance. Your selection here will also determine what customizations will be done to the recipies found later on.</html>");
         add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, 445, -1));
-        add(jSlider1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, 293, -1));
-        add(jSlider2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, 293, -1));
-        add(jSlider3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, 293, -1));
-        add(jSlider4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, 293, -1));
-        add(jSlider5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 293, -1));
-        add(jSlider6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 290, 293, -1));
-        add(jSlider7, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 250, 293, -1));
+        add(sliderEnhancer, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, 293, -1));
+        add(sliderAlcohol, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, 293, -1));
+        add(sliderSupplementaryJuice, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, 293, -1));
+        add(sliderPrimaryJuice, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, 293, -1));
+        add(sliderGarnishing, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 293, -1));
+        add(sliderPreparation, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 290, 293, -1));
+        add(sliderTaste, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 250, 293, -1));
     }// </editor-fold>//GEN-END:initComponents
     private DefaultListModel<String> blackListedModel = new DefaultListModel<>();
     private DefaultListModel<String> whiteListedModel = new DefaultListModel<>();
@@ -92,12 +96,36 @@ public class ImportanceConfigPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JSlider jSlider1;
-    private javax.swing.JSlider jSlider2;
-    private javax.swing.JSlider jSlider3;
-    private javax.swing.JSlider jSlider4;
-    private javax.swing.JSlider jSlider5;
-    private javax.swing.JSlider jSlider6;
-    private javax.swing.JSlider jSlider7;
+    private javax.swing.JSlider sliderAlcohol;
+    private javax.swing.JSlider sliderEnhancer;
+    private javax.swing.JSlider sliderGarnishing;
+    private javax.swing.JSlider sliderPreparation;
+    private javax.swing.JSlider sliderPrimaryJuice;
+    private javax.swing.JSlider sliderSupplementaryJuice;
+    private javax.swing.JSlider sliderTaste;
     // End of variables declaration//GEN-END:variables
+
+    void resetSelections() {
+        sliderAlcohol.setValue(50);
+        sliderEnhancer.setValue(50);
+        sliderGarnishing.setValue(50);
+        sliderPreparation.setValue(50);
+        sliderPrimaryJuice.setValue(50);
+        sliderSupplementaryJuice.setValue(50);
+        sliderTaste.setValue(50);
+    }
+    
+    public Map<Filter, Integer>  getFilterWeights() {
+        Map<Filter, Integer> weights = new HashMap<>();
+        weights.put(Filter.Alcohol, sliderAlcohol.getValue());
+        weights.put(Filter.Enhancer, sliderEnhancer.getValue());
+        weights.put(Filter.Garnishing, sliderGarnishing.getValue());
+        weights.put(Filter.Preparation, sliderPreparation.getValue());
+        weights.put(Filter.PrimaryJuice, sliderPrimaryJuice.getValue());
+        weights.put(Filter.SupplementaryJuice, sliderSupplementaryJuice.getValue());
+        weights.put(Filter.Taste, sliderTaste.getValue());  
+        System.out.println("ImportanceConfigPanel filter weights - " + weights);
+        return weights;
+        
+    }
 }

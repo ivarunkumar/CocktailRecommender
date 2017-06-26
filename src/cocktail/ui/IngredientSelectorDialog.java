@@ -16,12 +16,7 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreeSelectionModel;
 
 public class IngredientSelectorDialog extends JDialog implements ActionListener, TreeSelectionListener{
-    public enum Type {
-        Alcohol,
-        Enhancer,
-        PrimaryJuice,
-        SecondaryJuice
-    }
+
     private static final long serialVersionUID = 1L;
     private static String[] ingredientTypes = {"Alcohol", "Fruit Juice", "Seasoning", "Taste", "Fruit"};
     private static String [][] ingredients = { {"Beer", "Rum", "Tequila", "Wine", "Wiskey", "Gin"},
@@ -56,7 +51,7 @@ public class IngredientSelectorDialog extends JDialog implements ActionListener,
 
 
     private String selectedIngredient = null;
-    public IngredientSelectorDialog(Type type) {
+    public IngredientSelectorDialog(Filter type) {
         this.setTitle("Select Ingredient");
         this.setModal(true);
 
@@ -64,7 +59,7 @@ public class IngredientSelectorDialog extends JDialog implements ActionListener,
             case Alcohol: this.setupDialog(alcoholTypes, alcohols); break;
             case Enhancer: this.setupDialog(enhancerTypes, enhancers); break;
             case PrimaryJuice: this.setupDialog(primaryJuiceTypes, primaryJuices); break;
-            case SecondaryJuice: this.setupDialog(secondayJuiceTypes, secondayJuices); break;
+            case SupplementaryJuice: this.setupDialog(secondayJuiceTypes, secondayJuices); break;
             default: this.setupDialog(ingredientTypes, ingredients);
         } 
         this.setSize(200,400);
