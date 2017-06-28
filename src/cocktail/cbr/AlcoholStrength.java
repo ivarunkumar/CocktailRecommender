@@ -9,12 +9,9 @@ package cocktail.cbr;
  *
  * @author visaac
  */
-public enum Preparation {
+public enum AlcoholStrength {
     None,
-    Blend,
-    Layer,
-    Mix,
-    Muddling,
-    Shake,
- 
+    Mild,
+    Strong,
+    VeryStrong
 }

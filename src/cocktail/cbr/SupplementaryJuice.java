@@ -10,5 +10,26 @@ package cocktail.cbr;
  * @author visaac
  */
 public enum SupplementaryJuice {
-    
+    None,
+    Apple,
+    Banana,
+    Berry,
+    Cane,
+    Cherry,
+    Coconut,
+    Cranberry,
+    Cucumber,
+    Currant,
+    Grapefruit,
+    Lemon,
+    Lemonade,
+    Lime,
+    Litchi,
+    Orange,
+    Passion_Fruit,
+    Pear,    
+    Pineapple,
+    Rasberry,
+    Tamarin,
+
 }

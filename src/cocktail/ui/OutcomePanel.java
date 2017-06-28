@@ -9,6 +9,8 @@ import java.awt.BorderLayout;
 import java.awt.Container;
 import javax.swing.DefaultListModel;
 import javax.swing.JComponent;
+import jcolibri.cbrcore.CBRCase;
+import jcolibri.method.retrieve.RetrievalResult;
 
 /**
  *
@@ -22,6 +24,8 @@ public class OutcomePanel extends javax.swing.JPanel {
     public OutcomePanel() {
         initComponents();
     }
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.

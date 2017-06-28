@@ -10,5 +10,10 @@ package cocktail.cbr;
  * @author visaac
  */
 public enum Taste {
-    
+    None,
+    Bitter,
+    Sour,
+    Spicy,
+    Sweet,
+
 }

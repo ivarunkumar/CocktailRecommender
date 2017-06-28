@@ -11,12 +11,14 @@ import jcolibri.method.retrieve.NNretrieval.NNConfig;
 
 import javax.annotation.Generated;
 import cocktail.cbr.CaseDescription;
+import java.util.ArrayList;
 import jcolibri.method.retrieve.NNretrieval.NNConfig;
 import jcolibri.cbrcore.Attribute;
 import jcolibri.method.retrieve.RetrievalResult;
 import jcolibri.method.retrieve.NNretrieval.NNScoringMethod;
 import jcolibri.method.retrieve.selection.SelectCases;
 import java.util.Collection;
+import java.util.List;
 import jcolibri.method.retrieve.NNretrieval.similarity.local.EqualsStringIgnoreCase;
 
 public class CBRApplication implements StandardCBRApplication {
@@ -27,6 +29,8 @@ public class CBRApplication implements StandardCBRApplication {
     @Generated(value = {"ColibriStudio"})
     CBRCaseBase casebase;
     NNConfig similarityConfig;
+    
+    List<RetrievalResult> retrievedCases = new ArrayList<RetrievalResult>();
     //******************************************************************/
     // Configuration
     //******************************************************************/
@@ -113,14 +117,18 @@ public class CBRApplication implements StandardCBRApplication {
     @Generated(value = {"ColibriStudio"})
     @Override
     public void cycle(CBRQuery query) throws ExecutionException {
-        Collection<RetrievalResult> eval = NNScoringMethod.evaluateSimilarity(
-                casebase.getCases(), query, similarityConfig);
-        eval = SelectCases.selectTopKRR(eval, 5);
+        // Execute NN
+        Collection<RetrievalResult> eval = NNScoringMethod.evaluateSimilarity(casebase.getCases(), query, similarityConfig);
+
+        // Select k cases
+        //eval = SelectCases.selectTopKRR(eval, 5);
+        Collection<CBRCase> selectedCases = SelectCases.selectTopK(eval, 3);
+        
         System.out.println("Retrieved cases:");
-        for (RetrievalResult nse : eval) {
-//            CBRCase _case = nse.get_case();
-            System.out.println(nse);
-        }
+        for(RetrievalResult rr: eval)
+            if(selectedCases.contains(rr.get_case()))
+		retrievedCases.add(rr);
+	
     }
 
     @Generated(value = {"ColibriStudio"})
@@ -131,5 +139,26 @@ public class CBRApplication implements StandardCBRApplication {
 
     public void setSimilarityConfig(NNConfig similarityConfig) {
         this.similarityConfig = similarityConfig;
+    }
+    
+
+    List<CaseDescription> getSelectedCases() {
+    
+        List<CaseDescription> outList = new ArrayList<>();
+        for (RetrievalResult rr : retrievedCases) {
+
+        double sim = rr.getEval();
+
+        CBRCase _case = rr.get_case();
+        //this.caseId.setText(_case.getID().toString()+" -> "+sim+" ("+(currentCase+1)+"/"+cases.size()+")");
+
+        CaseDescription desc = (CaseDescription) _case.getDescription();
+        outList.add(desc);
+//        TravelSolution sol = (TravelSolution) _case.getSolution();
+//        this.price.setText(sol.getPrice().toString());
+//        this.hotel.setText(sol.getHotel());
+        }
+        
+        return outList;
     }
 }

@@ -9,12 +9,18 @@ package cocktail.cbr;
  *
  * @author visaac
  */
-public enum Preparation {
+public enum AlcoholType {
     None,
-    Blend,
-    Layer,
-    Mix,
-    Muddling,
-    Shake,
- 
+    Beer,
+    Brandy,
+    Cider,
+    Gin,
+    Liqueur,
+    Others,
+    Rum,
+    Tequila,
+    Vodka,
+    Whiskey,
+    Wine,
+
 }

@@ -10,5 +10,22 @@ package cocktail.cbr;
  * @author visaac
  */
 public enum Garnishing {
-    
+    None,
+    Ananas_Slice,
+    Anise_Basil,
+    Berry,
+    Blackcurrent,
+    Brown_Sugar,
+    Clementine_Orange,
+    Hazalnut_Powder,
+    Lemon_Slice,
+    Lemongrass,
+    Litchie,
+    Mint,
+    Pineapple,
+    Poppy_Seed,
+    Rasberry,
+    Shredded_Coconut,
+    Sugar,
+    Lime,
 }

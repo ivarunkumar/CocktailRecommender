@@ -9,12 +9,16 @@ package cocktail.cbr;
  *
  * @author visaac
  */
-public enum Preparation {
+public enum EnhancerType {
     None,
-    Blend,
-    Layer,
-    Mix,
-    Muddling,
-    Shake,
- 
+    Fruits,
+    Liqueur,
+    Milk,
+    Others,
+    Rum,
+    Soda,
+    Syrup,
+    Vegetable,
+    Vodka,
+    Wine,
 }

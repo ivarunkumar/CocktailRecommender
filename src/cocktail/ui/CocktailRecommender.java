@@ -18,6 +18,7 @@ import jcolibri.cbrcore.CBRCaseBase;
 import jcolibri.cbrcore.CBRQuery;
 import jcolibri.exception.ExecutionException;
 import jcolibri.method.retrieve.NNretrieval.NNConfig;
+import jcolibri.method.retrieve.NNretrieval.similarity.global.Average;
 import jcolibri.method.retrieve.NNretrieval.similarity.local.EqualsStringIgnoreCase;
 
 /**
@@ -28,7 +29,7 @@ public class CocktailRecommender extends javax.swing.JFrame {
 
     private AdaptationSettingsDialog settingsDialog = new AdaptationSettingsDialog(this);
     
-    private SearchPanel searchPanel = new SearchPanel();
+    private SearchPanelv2 searchPanel = new SearchPanelv2();
     private ImportanceConfigPanel importanceCfgPanel = new ImportanceConfigPanel();
     private OutcomePanel outcomePanel = new OutcomePanel();
     
@@ -235,6 +236,7 @@ public class CocktailRecommender extends javax.swing.JFrame {
         simConfig.addMapping(attribute6, new EqualsStringIgnoreCase());
         simConfig.setWeight(attribute6, filterWeights.get(Filter.Preparation).doubleValue()/100);
         
+        simConfig.setDescriptionSimFunction(new Average());
         return simConfig;
         
     }
@@ -248,8 +250,6 @@ public class CocktailRecommender extends javax.swing.JFrame {
         } catch (ExecutionException ex) {
             Logger.getLogger(CocktailRecommender.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
     } 
     
     private CBRQuery getQuery()
