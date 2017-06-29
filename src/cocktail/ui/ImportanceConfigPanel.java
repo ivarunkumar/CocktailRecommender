@@ -117,8 +117,8 @@ public class ImportanceConfigPanel extends javax.swing.JPanel {
     
     public Map<Filter, Integer>  getFilterWeights() {
         Map<Filter, Integer> weights = new HashMap<>();
-        weights.put(Filter.Alcohol, sliderAlcohol.getValue());
-        weights.put(Filter.Enhancer, sliderEnhancer.getValue());
+        weights.put(Filter.AlcoholType, sliderAlcohol.getValue());
+        weights.put(Filter.EnhancerType, sliderEnhancer.getValue());
         weights.put(Filter.Garnishing, sliderGarnishing.getValue());
         weights.put(Filter.Preparation, sliderPreparation.getValue());
         weights.put(Filter.PrimaryJuice, sliderPrimaryJuice.getValue());

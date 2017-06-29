@@ -9,9 +9,8 @@ package cocktail.cbr;
  *
  * @author visaac
  */
-public enum AlcoholStrength {
-    None,
-    Mild,
-    Strong,
-    Very_Strong
+public class CocktailCase {
+    public double similarity;
+    public CaseDescription description;
+    public Recipe recipe;
 }

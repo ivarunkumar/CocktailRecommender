@@ -56,8 +56,8 @@ public class IngredientSelectorDialog extends JDialog implements ActionListener,
         this.setModal(true);
 
         switch(type) {
-            case Alcohol: this.setupDialog(alcoholTypes, alcohols); break;
-            case Enhancer: this.setupDialog(enhancerTypes, enhancers); break;
+            case AlcoholType: this.setupDialog(alcoholTypes, alcohols); break;
+            case EnhancerType: this.setupDialog(enhancerTypes, enhancers); break;
             case PrimaryJuice: this.setupDialog(primaryJuiceTypes, primaryJuices); break;
             case SupplementaryJuice: this.setupDialog(secondayJuiceTypes, secondayJuices); break;
             default: this.setupDialog(ingredientTypes, ingredients);

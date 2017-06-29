@@ -5,10 +5,14 @@
  */
 package cocktail.ui;
 
+import cocktail.cbr.CocktailCase;
 import java.awt.BorderLayout;
 import java.awt.Container;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.DefaultListModel;
 import javax.swing.JComponent;
+import javax.swing.JScrollPane;
 import jcolibri.cbrcore.CBRCase;
 import jcolibri.method.retrieve.RetrievalResult;
 
@@ -18,6 +22,7 @@ import jcolibri.method.retrieve.RetrievalResult;
  */
 public class OutcomePanel extends javax.swing.JPanel {
 
+    private List<CaseRevisionPanel> casePanes = new ArrayList<>();
     /**
      * Creates new form QueryPanel
      */
@@ -25,7 +30,29 @@ public class OutcomePanel extends javax.swing.JPanel {
         initComponents();
     }
 
+    public void populateCases(List<CocktailCase> cases) {
+        jTabbedPane1.removeAll();
+        casePanes.clear();
+        for (int i = 0 ; i < cases.size() ; i++ ) {
+            CaseRevisionPanel crp = new CaseRevisionPanel(cases.get(i));
+            casePanes.add(crp);
+            jTabbedPane1.addTab(String.valueOf(i), crp);
+        }
+    }
+    
+    public List<CBRCase> getCasesToRetain() {
+        List<CBRCase> casesToRetain = new ArrayList<>();
 
+        for (CaseRevisionPanel crp : casePanes) {
+            CBRCase caseForRetension = crp.getCaseForRetension();
+            if (caseForRetension != null) {
+                casesToRetain.add(caseForRetension);
+            }
+        }
+        
+        return casesToRetain;
+        
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -38,30 +65,21 @@ public class OutcomePanel extends javax.swing.JPanel {
 
         jLabel8 = new javax.swing.JLabel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel8.setText("<html>Please click on the settings options to customize your adaptation parameters and click on the refresh button below.</html>");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, 490, -1));
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, 490, -1));
 
         jTabbedPane1.setTabPlacement(javax.swing.JTabbedPane.BOTTOM);
-
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
-
-        jTabbedPane1.addTab("tab1", jScrollPane1);
-
-        add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 490, 330));
+        add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 490, 350));
     }// </editor-fold>//GEN-END:initComponents
-    private DefaultListModel<String> blackListedModel = new DefaultListModel<>();
-    private DefaultListModel<String> whiteListedModel = new DefaultListModel<>();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
+
+    void reset() {
+        jTabbedPane1.removeAll();
+    }
 }

@@ -22,27 +22,32 @@
                   <Component id="jLabel8" min="-2" pref="440" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel7" min="-2" pref="118" max="-2" attributes="0"/>
-                          <Group type="103" alignment="0" groupAlignment="0" attributes="0">
-                              <Component id="jLabel3" alignment="1" min="-2" pref="118" max="-2" attributes="0"/>
-                              <Component id="jLabel2" alignment="0" min="-2" pref="118" max="-2" attributes="0"/>
-                              <Component id="jLabel5" min="-2" pref="118" max="-2" attributes="0"/>
-                              <Component id="jLabel1" alignment="0" max="-2" attributes="0"/>
-                              <Component id="jLabel4" alignment="0" min="-2" pref="118" max="-2" attributes="0"/>
-                              <Component id="jLabel6" alignment="0" min="-2" pref="118" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="jLabel7" min="-2" pref="118" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="jcbPreparation" min="-2" pref="235" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel3" alignment="1" min="-2" pref="118" max="-2" attributes="0"/>
+                                  <Component id="jLabel2" alignment="0" min="-2" pref="118" max="-2" attributes="0"/>
+                                  <Component id="jLabel5" min="-2" pref="118" max="-2" attributes="0"/>
+                                  <Component id="jLabel1" alignment="0" max="-2" attributes="0"/>
+                                  <Component id="jLabel4" alignment="0" min="-2" pref="118" max="-2" attributes="0"/>
+                                  <Component id="jLabel6" alignment="0" min="-2" pref="118" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jcbEnhancerType" min="-2" pref="235" max="-2" attributes="0"/>
+                                  <Component id="jcbAlcoholType" min="-2" pref="235" max="-2" attributes="0"/>
+                                  <Component id="jcbPrimaryJuice" min="-2" pref="235" max="-2" attributes="0"/>
+                                  <Component id="jcbSupplementaryJuice" min="-2" pref="235" max="-2" attributes="0"/>
+                                  <Component id="jcbGarnishing" min="-2" pref="235" max="-2" attributes="0"/>
+                                  <Component id="jcbTaste" min="-2" pref="235" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="butGarnishingSelector" alignment="0" pref="256" max="32767" attributes="0"/>
-                          <Component id="butSupplementaryJuiceSelector" alignment="0" max="32767" attributes="0"/>
-                          <Component id="butPreparationSelector" alignment="0" max="32767" attributes="0"/>
-                          <Component id="butTasteSelector" alignment="0" max="32767" attributes="0"/>
-                          <Component id="butEnhancerSelector" alignment="0" max="32767" attributes="0"/>
-                          <Component id="butPrimaryJuiceSelector" alignment="0" max="32767" attributes="0"/>
-                          <Component id="butAlcoholSelector" alignment="0" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace pref="33" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jcbAvoidPreparation" alignment="0" max="-2" attributes="0"/>
                           <Component id="jcbAvoidTaste" alignment="0" max="-2" attributes="0"/>
@@ -64,50 +69,48 @@
               <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="butAlcoholSelector" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jcbAvoidAlcohol" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jcbAlcoholType" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="butEnhancerSelector" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jcbAvoidEnhancer" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jcbEnhancerType" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="butPrimaryJuiceSelector" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jcbAvoidPrimaryJuice" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jcbPrimaryJuice" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="butSupplementaryJuiceSelector" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jcbAvoidSupplementaryJuice" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jcbSupplementaryJuice" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="butGarnishingSelector" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jcbAvoidGarnishing" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jcbGarnishing" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="butTasteSelector" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jcbAvoidTaste" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jcbTaste" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                      <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="butPreparationSelector" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="jcbAvoidPreparation" alignment="0" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jcbPreparation" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jcbAvoidPreparation" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
               <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="50" max="32767" attributes="0"/>
+              <EmptySpace pref="67" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -115,7 +118,7 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Alcohol"/>
+        <Property name="text" type="java.lang.String" value="Alcohol Type"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
@@ -128,14 +131,6 @@
         <Property name="text" type="java.lang.String" value="Supplementary Juice"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="butAlcoholSelector">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Choose Alcohol"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butAlcoholSelectorActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JCheckBox" name="jcbAvoidPrimaryJuice">
       <Properties>
         <Property name="text" type="java.lang.String" value="Avoid"/>
@@ -144,28 +139,12 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jcbAvoidPrimaryJuiceActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="butPrimaryJuiceSelector">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Choose Primary Juice"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butPrimaryJuiceSelectorActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JCheckBox" name="jcbAvoidAlcohol">
       <Properties>
         <Property name="text" type="java.lang.String" value="Avoid"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jcbAvoidAlcoholActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="butSupplementaryJuiceSelector">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Choose Supplementary Juice"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butSupplementaryJuiceSelectorActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JCheckBox" name="jcbAvoidSupplementaryJuice">
@@ -181,14 +160,6 @@
         <Property name="text" type="java.lang.String" value="Garnishing"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="butGarnishingSelector">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Choose Garnishing"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butGarnishingSelectorActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JCheckBox" name="jcbAvoidGarnishing">
       <Properties>
         <Property name="text" type="java.lang.String" value="Avoid"/>
@@ -199,16 +170,8 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Enhancer"/>
+        <Property name="text" type="java.lang.String" value="Enhancer Type"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="butEnhancerSelector">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Choose Enhancer"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butEnhancerSelectorActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JCheckBox" name="jcbAvoidEnhancer">
       <Properties>
@@ -223,14 +186,6 @@
         <Property name="text" type="java.lang.String" value="Taste Preference"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="butTasteSelector">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Choose Taste Preference"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butTasteSelectorActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JCheckBox" name="jcbAvoidTaste">
       <Properties>
         <Property name="text" type="java.lang.String" value="Avoid"/>
@@ -244,15 +199,6 @@
         <Property name="text" type="java.lang.String" value="Preparation Method"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="butPreparationSelector">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Choose Preparation Method"/>
-        <Property name="actionCommand" type="java.lang.String" value="Choose Preparation"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butPreparationSelectorActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JCheckBox" name="jcbAvoidPreparation">
       <Properties>
         <Property name="text" type="java.lang.String" value="Avoid"/>
@@ -265,6 +211,76 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="&lt;html&gt;Please click on the buttons against each option to choose your preference. &lt;br&gt;Use the check box to avoid the chosen preference. &lt;br&gt;You can click the options again to change your preference.&lt;/html&gt;"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="jcbAlcoholType">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="0"/>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="jcbEnhancerType">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="0"/>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="jcbPrimaryJuice">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="0"/>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="jcbSupplementaryJuice">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="0"/>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="jcbGarnishing">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="0"/>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="jcbTaste">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="0"/>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="jcbPreparation">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="0"/>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

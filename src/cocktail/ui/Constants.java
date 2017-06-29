@@ -10,11 +10,21 @@ package cocktail.ui;
  * @author visaac
  */
 enum Filter {
-    Alcohol,
-    Enhancer,
+    AlcoholType,
+    EnhancerType,
     PrimaryJuice,
     SupplementaryJuice,
     Garnishing,
     Taste,
     Preparation
+}
+
+enum AdaptationPreference {
+    AlcoholType,
+    EnhancerType,
+    PrimaryJuice,
+    SupplementaryJuice,
+    Garnishing,
+    Taste,
+    Preparation   
 }

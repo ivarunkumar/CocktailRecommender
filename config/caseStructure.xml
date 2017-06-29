@@ -1,8 +1,24 @@
 <?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
 <Case>
     <CompoundAttribute isId="false">
-        <attribType/>
+        <attribType>Recipe</attribType>
         <name>Solution</name>
+        <SimpleAttribute isId="true">
+            <attribType>java.lang.String</attribType>
+            <name>RecipeName</name>
+        </SimpleAttribute>
+        <SimpleAttribute isId="false">
+            <attribType>cocktail.cbr.AlcoholStrength</attribType>
+            <name>AlcoholStrength</name>
+        </SimpleAttribute>
+        <SimpleAttribute isId="false">
+            <attribType>cocktail.cbr.Alcohol</attribType>
+            <name>Alcohol</name>
+        </SimpleAttribute>
+        <SimpleAttribute isId="false">
+            <attribType>cocktail.cbr.Enhancer</attribType>
+            <name>Enhancer</name>
+        </SimpleAttribute>
     </CompoundAttribute>
     <CompoundAttribute isId="false">
         <attribType/>
@@ -15,45 +31,37 @@
     <CompoundAttribute isId="false">
         <attribType>CaseDescription</attribType>
         <name>Description</name>
+        <SimpleAttribute isId="true">
+            <attribType>java.lang.Integer</attribType>
+            <name>CaseID</name>
+        </SimpleAttribute>        
         <SimpleAttribute isId="false">
-            <attribType>java.lang.String</attribType>
-            <name>Steps</name>
+            <attribType>cocktail.cbr.AlcoholType</attribType>
+            <name>AlcoholType</name>
         </SimpleAttribute>
         <SimpleAttribute isId="false">
-            <attribType>java.lang.String</attribType>
-            <name>Preparation</name>
+            <attribType>cocktail.cbr.EnhancerType</attribType>
+            <name>EnhancerType</name>
         </SimpleAttribute>
         <SimpleAttribute isId="false">
-            <attribType>java.lang.String</attribType>
-            <name>Taste</name>
-        </SimpleAttribute>
-        <SimpleAttribute isId="false">
-            <attribType>java.lang.String</attribType>
-            <name>Garnishing</name>
-        </SimpleAttribute>
-        <SimpleAttribute isId="false">
-            <attribType>java.lang.String</attribType>
-            <name>SupplementaryJuice</name>
-        </SimpleAttribute>
-        <SimpleAttribute isId="false">
-            <attribType>java.lang.String</attribType>
+            <attribType>cocktail.cbr.PrimaryJuice</attribType>
             <name>PrimaryJuice</name>
         </SimpleAttribute>
         <SimpleAttribute isId="false">
-            <attribType>java.lang.String</attribType>
-            <name>Enhancer</name>
+            <attribType>cocktail.cbr.SupplementaryJuice</attribType>
+            <name>SupplementaryJuice</name>
         </SimpleAttribute>
         <SimpleAttribute isId="false">
-            <attribType>java.lang.String</attribType>
-            <name>Alcohol</name>
+            <attribType>cocktail.cbr.Garnishing</attribType>
+            <name>Garnishing</name>
         </SimpleAttribute>
         <SimpleAttribute isId="false">
-            <attribType>java.lang.String</attribType>
-            <name>RecipeName</name>
+            <attribType>cocktail.cbr.Taste</attribType>
+            <name>Taste</name>
         </SimpleAttribute>
-        <SimpleAttribute isId="true">
-            <attribType>java.lang.Integer</attribType>
-            <name>CaseId</name>
+        <SimpleAttribute isId="false">
+            <attribType>cocktail.cbr.Preparation</attribType>
+            <name>Preparation</name>
         </SimpleAttribute>
     </CompoundAttribute>
 </Case>

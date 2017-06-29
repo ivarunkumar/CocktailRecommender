@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
 <TextFileConfiguration>
-    <FilePath>data/ccc_cocktails_v4.txt</FilePath>
-    <Delimiters>;</Delimiters>
+    <FilePath>C:\workspace\NetBeansProjects\CocktailRecommender\data\ccc_cocktails_full_v3.csv</FilePath>
+    <Delimiters>,</Delimiters>
     <DescriptionClassName>cocktail.cbr.CaseDescription</DescriptionClassName>
     <DescriptionMappings>
-        <Map>CaseId</Map>
-        <Map>RecipeName</Map>
-        <Map>Alcohol</Map>
-        <Map>Enhancer</Map>
+        <Map>CaseID</Map>
+        <Map>AlcoholType</Map>
+        <Map>EnhancerType</Map>
         <Map>PrimaryJuice</Map>
         <Map>SupplementaryJuice</Map>
         <Map>Garnishing</Map>
         <Map>Taste</Map>
         <Map>Preparation</Map>
-        <Map>Steps</Map>
     </DescriptionMappings>
+    <SolutionClassName>cocktail.cbr.Recipe</SolutionClassName>
+    <SolutionMappings>
+        <Map>RecipeName</Map>
+        <Map>AlcoholStrength</Map>
+        <Map>Alcohol</Map>
+        <Map>Enhancer</Map>
+    </SolutionMappings>
 </TextFileConfiguration>

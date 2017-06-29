@@ -5,9 +5,19 @@
  */
 package cocktail.ui;
 
+import cocktail.cbr.AlcoholType;
 import cocktail.cbr.CBRApplication;
 import cocktail.cbr.CaseDescription;
+import cocktail.cbr.CocktailCase;
+import cocktail.cbr.EnhancerType;
+import cocktail.cbr.Garnishing;
+import cocktail.cbr.Preparation;
+import cocktail.cbr.PrimaryJuice;
+import cocktail.cbr.SupplementaryJuice;
+import cocktail.cbr.Taste;
 import java.awt.BorderLayout;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,7 +29,9 @@ import jcolibri.cbrcore.CBRQuery;
 import jcolibri.exception.ExecutionException;
 import jcolibri.method.retrieve.NNretrieval.NNConfig;
 import jcolibri.method.retrieve.NNretrieval.similarity.global.Average;
-import jcolibri.method.retrieve.NNretrieval.similarity.local.EqualsStringIgnoreCase;
+import jcolibri.method.retrieve.NNretrieval.similarity.local.Equal;
+import jcolibri.method.retrieve.NNretrieval.similarity.local.recommenders.InrecaLessIsBetter;
+import jcolibri.method.retrieve.NNretrieval.similarity.local.recommenders.InrecaMoreIsBetter;
 
 /**
  *
@@ -27,17 +39,17 @@ import jcolibri.method.retrieve.NNretrieval.similarity.local.EqualsStringIgnoreC
  */
 public class CocktailRecommender extends javax.swing.JFrame {
 
-    private AdaptationSettingsDialog settingsDialog = new AdaptationSettingsDialog(this);
+    private AdaptationSettingsDialog adaptationSettingsDialog = new AdaptationSettingsDialog(this);
     
-    private SearchPanelv2 searchPanel = new SearchPanelv2();
+    private SearchPanel searchPanel = new SearchPanel();
     private ImportanceConfigPanel importanceCfgPanel = new ImportanceConfigPanel();
     private OutcomePanel outcomePanel = new OutcomePanel();
     
     // Keep the following three attributes in synch
     private JPanel[] panels = {searchPanel, importanceCfgPanel, outcomePanel};
     private static final String[] actionButtonLables = {"Search", "Apply", "Retain"};
-    private static final String[] resetButtonLables = {"Reset", "Default", "Refresh"};
-    private static final String[] actionCommand= {"Query", "Importance", "Refresh"};
+    private static final String[] resetButtonLables = {"Reset", "Default", "Start Over"};
+    private static final String[] actionCommand= {"Query", "Importance", "Start Over"};
     private static final String[] stageTitles = {"Search Cocktails", "Importance/Weightage Selection", "Search and Adaptation Results"};
     private int currentPanelIdx = 0;
     private CBRApplication cbrApp = new CBRApplication();
@@ -84,6 +96,12 @@ public class CocktailRecommender extends javax.swing.JFrame {
             panels[currentPanelIdx].setVisible(true);
             mainTabPane.setSelectedIndex(panelIdx);
             currentPanelIdx = panelIdx;
+        }
+        
+        if (panelIdx == 0) {
+            searchPanel.resetSelections();
+            importanceCfgPanel.resetSelections();
+            outcomePanel.reset();
         }
     }
     /**
@@ -172,11 +190,14 @@ public class CocktailRecommender extends javax.swing.JFrame {
                 break; 
             }
             case "Importance" : {
-                activatePanel(2);
                 invokeCBR();                
+                activatePanel(2);                
                 break;
             } 
-            case "Retain" : break;
+            case "Retain" : {
+                retainCases();
+                break;
+            }
             default:
         }
     }//GEN-LAST:event_butCurrentActionActionPerformed
@@ -191,52 +212,53 @@ public class CocktailRecommender extends javax.swing.JFrame {
                 importanceCfgPanel.resetSelections();
                 break;
             }
-            case "Retain" :  break;
+            case "Start Over" : activatePanel(0);  break;
             default:
         }
     }//GEN-LAST:event_butCurrentResetActionPerformed
 
     private void butSettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butSettingsActionPerformed
-        settingsDialog.setVisible(true);
+        adaptationSettingsDialog.setVisible(true);
     }//GEN-LAST:event_butSettingsActionPerformed
 
     private void mainTabPaneStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_mainTabPaneStateChanged
     }//GEN-LAST:event_mainTabPaneStateChanged
     private NNConfig buildSimilarityConfig() {
         Map<Filter, Integer> filterWeights = importanceCfgPanel.getFilterWeights();
-        
+        List<Filter> avoidList = getAvoidFilterList();
         NNConfig simConfig = new NNConfig();
         simConfig.setDescriptionSimFunction(new jcolibri.method.retrieve.NNretrieval.similarity.global.Average());
 
-        Attribute attribute0 = new Attribute("Alcohol", CaseDescription.class);
-        simConfig.addMapping(attribute0, new EqualsStringIgnoreCase());
-        simConfig.setWeight(attribute0, filterWeights.get(Filter.Alcohol).doubleValue()/100);
+        Attribute attribute0 = new Attribute("AlcoholType", CaseDescription.class);
+        simConfig.addMapping(attribute0, (avoidList.contains(Filter.AlcoholType)? new InrecaLessIsBetter(1.0, 0.2): new InrecaMoreIsBetter(0.2)));
+        simConfig.setWeight(attribute0, filterWeights.get(Filter.AlcoholType).doubleValue()/100);
 
-        Attribute attribute1 = new Attribute("Enhancer", CaseDescription.class);
-        simConfig.addMapping(attribute1, new EqualsStringIgnoreCase());
-        simConfig.setWeight(attribute1, filterWeights.get(Filter.Enhancer).doubleValue()/100);
+        Attribute attribute1 = new Attribute("EnhancerType", CaseDescription.class);
+        simConfig.addMapping(attribute1, (avoidList.contains(Filter.EnhancerType)? new InrecaLessIsBetter(1.0, 0.2): new InrecaMoreIsBetter(0.2)));
+        simConfig.setWeight(attribute1, filterWeights.get(Filter.EnhancerType).doubleValue()/100);
 
         Attribute attribute2 = new Attribute("PrimaryJuice", CaseDescription.class);
-        simConfig.addMapping(attribute2, new EqualsStringIgnoreCase());
+        simConfig.addMapping(attribute2, (avoidList.contains(Filter.PrimaryJuice)? new InrecaLessIsBetter(1.0, 0.2): new InrecaMoreIsBetter(0.2)));
         simConfig.setWeight(attribute2, filterWeights.get(Filter.PrimaryJuice).doubleValue()/100);
 
         Attribute attribute3 = new Attribute("SupplementaryJuice", CaseDescription.class);
-        simConfig.addMapping(attribute3, new EqualsStringIgnoreCase());
+        simConfig.addMapping(attribute3, (avoidList.contains(Filter.SupplementaryJuice)? new InrecaLessIsBetter(1.0, 0.2): new InrecaMoreIsBetter(0.2)));
         simConfig.setWeight(attribute3, filterWeights.get(Filter.SupplementaryJuice).doubleValue()/100);
         
         Attribute attribute4 = new Attribute("Garnishing", CaseDescription.class);
-        simConfig.addMapping(attribute4, new EqualsStringIgnoreCase());
+        simConfig.addMapping(attribute4, (avoidList.contains(Filter.Garnishing)? new InrecaLessIsBetter(1.0, 0.2): new InrecaMoreIsBetter(0.2)));
         simConfig.setWeight(attribute4, filterWeights.get(Filter.Garnishing).doubleValue()/100);
         
         Attribute attribute5 = new Attribute("Taste", CaseDescription.class);
-        simConfig.addMapping(attribute5, new EqualsStringIgnoreCase());
+        simConfig.addMapping(attribute5, (avoidList.contains(Filter.Taste)? new InrecaLessIsBetter(1.0, 0.2): new InrecaMoreIsBetter(0.2)));
         simConfig.setWeight(attribute5, filterWeights.get(Filter.Taste).doubleValue()/100);
         
         Attribute attribute6 = new Attribute("Preparation", CaseDescription.class);
-        simConfig.addMapping(attribute6, new EqualsStringIgnoreCase());
+        simConfig.addMapping(attribute6, (avoidList.contains(Filter.Preparation)? new InrecaLessIsBetter(1.0, 0.2): new InrecaMoreIsBetter(0.2)));
         simConfig.setWeight(attribute6, filterWeights.get(Filter.Preparation).doubleValue()/100);
         
         simConfig.setDescriptionSimFunction(new Average());
+        System.out.println("NNConfig " + simConfig);
         return simConfig;
         
     }
@@ -245,8 +267,11 @@ public class CocktailRecommender extends javax.swing.JFrame {
         CBRQuery query = getQuery();
         NNConfig similarityConfig = buildSimilarityConfig();
         cbrApp.setSimilarityConfig(similarityConfig);
+        cbrApp.setAdaptationConfig(adaptationSettingsDialog.getAdaptationPreferences());
         try {
             cbrApp.cycle(query);
+            List<CocktailCase> selectedCases = cbrApp.getSelectedCases();
+            outcomePanel.populateCases(selectedCases);
         } catch (ExecutionException ex) {
             Logger.getLogger(CocktailRecommender.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -257,38 +282,74 @@ public class CocktailRecommender extends javax.swing.JFrame {
         Map<Filter, String> filters = searchPanel.getFilters();
         CaseDescription desc = new CaseDescription();
         
-        if (filters.containsKey(Filter.Alcohol)) {
-            desc.setAlcohol(filters.get(Filter.Alcohol));
+        if (filters.containsKey(Filter.AlcoholType)) {
+            desc.setAlcoholType(AlcoholType.valueOf(filters.get(Filter.AlcoholType).split("-")[0]));
         }
         
-        if (filters.containsKey(Filter.Enhancer)) {
-            desc.setEnhancer(filters.get(Filter.Enhancer));
+        if (filters.containsKey(Filter.EnhancerType)) {
+            desc.setEnhancerType(EnhancerType.valueOf(filters.get(Filter.EnhancerType).split("-")[0]));
         }
         
         if (filters.containsKey(Filter.Garnishing)) {
-            desc.setGarnishing(filters.get(Filter.Garnishing));
+            desc.setGarnishing(Garnishing.valueOf(filters.get(Filter.Garnishing).split("-")[0]));
         }
         
         if (filters.containsKey(Filter.PrimaryJuice)) {
-            desc.setPrimaryJuice(filters.get(Filter.PrimaryJuice));
+            desc.setPrimaryJuice(PrimaryJuice.valueOf(filters.get(Filter.PrimaryJuice).split("-")[0]));
         }
         
         if (filters.containsKey(Filter.SupplementaryJuice)) {
-            desc.setSupplementaryJuice(filters.get(Filter.SupplementaryJuice));
+            desc.setSupplementaryJuice(SupplementaryJuice.valueOf(filters.get(Filter.SupplementaryJuice).split("-")[0]));
         }
         
         if (filters.containsKey(Filter.Preparation)) {
-            desc.setPreparation(filters.get(Filter.Preparation));
+            desc.setPreparation(Preparation.valueOf(filters.get(Filter.Preparation).split("-")[0]));
         }
         
         if (filters.containsKey(Filter.Taste)) {
-            desc.setTaste(filters.get(Filter.Taste));
+            desc.setTaste(Taste.valueOf(filters.get(Filter.Taste).split("-")[0]));
         }
-        
+
         CBRQuery query = new CBRQuery();
         query.setDescription(desc);
-
+        System.out.println("Query " + query);
         return query;
+    }
+    
+    private List<Filter> getAvoidFilterList()
+    {   
+        Map<Filter, String> filters = searchPanel.getFilters();
+        List<Filter> lst = new ArrayList<>();
+        
+        if (filters.containsKey(Filter.AlcoholType) && filters.get(Filter.AlcoholType).split("-")[1] == "true") {
+            lst.add(Filter.AlcoholType);
+        }
+        
+        if (filters.containsKey(Filter.EnhancerType) && filters.get(Filter.EnhancerType).split("-")[1] == "true") {
+            lst.add(Filter.EnhancerType);
+        }
+        
+        if (filters.containsKey(Filter.Garnishing) && filters.get(Filter.Garnishing).split("-")[1] == "true") {
+            lst.add(Filter.Garnishing);
+        }
+        
+        if (filters.containsKey(Filter.PrimaryJuice) && filters.get(Filter.PrimaryJuice).split("-")[1] == "true") {
+            lst.add(Filter.PrimaryJuice);
+        }
+        
+        if (filters.containsKey(Filter.SupplementaryJuice) && filters.get(Filter.SupplementaryJuice).split("-")[1] == "true") {
+            lst.add(Filter.SupplementaryJuice);
+        }
+        
+        if (filters.containsKey(Filter.Preparation) && filters.get(Filter.Preparation).split("-")[1] == "true") {
+            lst.add(Filter.Preparation);
+        }        
+
+        if (filters.containsKey(Filter.Taste) && filters.get(Filter.Taste).split("-")[1] == "true") {
+            lst.add(Filter.Taste);
+        }        
+        
+       return lst;
     }  
     /**
      * @param args the command line arguments
@@ -333,4 +394,9 @@ public class CocktailRecommender extends javax.swing.JFrame {
     private javax.swing.JLabel lblStageTitle;
     private javax.swing.JTabbedPane mainTabPane;
     // End of variables declaration//GEN-END:variables
+
+    private void retainCases() {
+        List<CBRCase> casesToRetain = outcomePanel.getCasesToRetain();
+        cbrApp.learn(casesToRetain);
+    }
 }

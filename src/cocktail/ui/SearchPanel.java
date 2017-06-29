@@ -1,10 +1,17 @@
 /*
  * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
+ * To change this template file, choose Tools - Templates
  * and open the template in the editor.
  */
 package cocktail.ui;
 
+import cocktail.cbr.AlcoholType;
+import cocktail.cbr.EnhancerType;
+import cocktail.cbr.Garnishing;
+import cocktail.cbr.PrimaryJuice;
+import cocktail.cbr.SupplementaryJuice;
+import cocktail.cbr.Taste;
+import cocktail.cbr.Preparation;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.util.HashMap;
@@ -24,11 +31,42 @@ public class SearchPanel extends javax.swing.JPanel {
      */
     public SearchPanel() {
         initComponents();
+        populateSelectors();
     }
 
     public Map<Filter, String>  getFilters() {
+        if (jcbAlcoholType.getSelectedIndex() != -1) {
+            chosenFiltersAndValues.put(Filter.AlcoholType, jcbAlcoholType.getSelectedItem().toString() + "-" + jcbAvoidAlcohol.isSelected());
+        }
+        
+        if (jcbEnhancerType.getSelectedIndex() != -1) {
+            chosenFiltersAndValues.put(Filter.EnhancerType, jcbEnhancerType.getSelectedItem().toString() + "-" + jcbAvoidEnhancer.isSelected());
+        }
+        
+        if (jcbPrimaryJuice.getSelectedIndex() != -1) {
+            chosenFiltersAndValues.put(Filter.PrimaryJuice, jcbPrimaryJuice.getSelectedItem().toString()+ "-" + jcbAvoidPrimaryJuice.isSelected());
+        }
+        
+        if (jcbSupplementaryJuice.getSelectedIndex() != -1) {
+            chosenFiltersAndValues.put(Filter.SupplementaryJuice, jcbSupplementaryJuice.getSelectedItem().toString()+ "-" + jcbAvoidSupplementaryJuice.isSelected());
+        }
+        
+        if (jcbGarnishing.getSelectedIndex() != -1) {
+            chosenFiltersAndValues.put(Filter.Garnishing, jcbGarnishing.getSelectedItem().toString()+ "-" + jcbAvoidGarnishing.isSelected());
+        }
+        
+        if (jcbPreparation.getSelectedIndex() != -1) {
+            chosenFiltersAndValues.put(Filter.Preparation, jcbPreparation.getSelectedItem().toString()+ "-" + jcbAvoidPreparation.isSelected());
+        }
+        
+        if (jcbTaste.getSelectedIndex() != -1) {
+            chosenFiltersAndValues.put(Filter.Taste, jcbTaste.getSelectedItem().toString()+ "-" + jcbAvoidTaste.isSelected());
+        }
+        
+        System.out.println("chosenFiltersAndValues "  + chosenFiltersAndValues);
         return chosenFiltersAndValues;
     }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -41,38 +79,31 @@ public class SearchPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        butAlcoholSelector = new javax.swing.JButton();
         jcbAvoidPrimaryJuice = new javax.swing.JCheckBox();
-        butPrimaryJuiceSelector = new javax.swing.JButton();
         jcbAvoidAlcohol = new javax.swing.JCheckBox();
-        butSupplementaryJuiceSelector = new javax.swing.JButton();
         jcbAvoidSupplementaryJuice = new javax.swing.JCheckBox();
         jLabel4 = new javax.swing.JLabel();
-        butGarnishingSelector = new javax.swing.JButton();
         jcbAvoidGarnishing = new javax.swing.JCheckBox();
         jLabel5 = new javax.swing.JLabel();
-        butEnhancerSelector = new javax.swing.JButton();
         jcbAvoidEnhancer = new javax.swing.JCheckBox();
         jLabel6 = new javax.swing.JLabel();
-        butTasteSelector = new javax.swing.JButton();
         jcbAvoidTaste = new javax.swing.JCheckBox();
         jLabel7 = new javax.swing.JLabel();
-        butPreparationSelector = new javax.swing.JButton();
         jcbAvoidPreparation = new javax.swing.JCheckBox();
         jLabel8 = new javax.swing.JLabel();
+        jcbAlcoholType = new javax.swing.JComboBox<>();
+        jcbEnhancerType = new javax.swing.JComboBox<>();
+        jcbPrimaryJuice = new javax.swing.JComboBox<>();
+        jcbSupplementaryJuice = new javax.swing.JComboBox<>();
+        jcbGarnishing = new javax.swing.JComboBox<>();
+        jcbTaste = new javax.swing.JComboBox<>();
+        jcbPreparation = new javax.swing.JComboBox<>();
 
-        jLabel1.setText("Alcohol");
+        jLabel1.setText("Alcohol Type");
 
         jLabel2.setText("Primary Juice");
 
         jLabel3.setText("Supplementary Juice");
-
-        butAlcoholSelector.setText("Choose Alcohol");
-        butAlcoholSelector.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butAlcoholSelectorActionPerformed(evt);
-            }
-        });
 
         jcbAvoidPrimaryJuice.setText("Avoid");
         jcbAvoidPrimaryJuice.addActionListener(new java.awt.event.ActionListener() {
@@ -81,24 +112,10 @@ public class SearchPanel extends javax.swing.JPanel {
             }
         });
 
-        butPrimaryJuiceSelector.setText("Choose Primary Juice");
-        butPrimaryJuiceSelector.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butPrimaryJuiceSelectorActionPerformed(evt);
-            }
-        });
-
         jcbAvoidAlcohol.setText("Avoid");
         jcbAvoidAlcohol.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcbAvoidAlcoholActionPerformed(evt);
-            }
-        });
-
-        butSupplementaryJuiceSelector.setText("Choose Supplementary Juice");
-        butSupplementaryJuiceSelector.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butSupplementaryJuiceSelectorActionPerformed(evt);
             }
         });
 
@@ -111,13 +128,6 @@ public class SearchPanel extends javax.swing.JPanel {
 
         jLabel4.setText("Garnishing");
 
-        butGarnishingSelector.setText("Choose Garnishing");
-        butGarnishingSelector.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butGarnishingSelectorActionPerformed(evt);
-            }
-        });
-
         jcbAvoidGarnishing.setText("Avoid");
         jcbAvoidGarnishing.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,14 +135,7 @@ public class SearchPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel5.setText("Enhancer");
-
-        butEnhancerSelector.setText("Choose Enhancer");
-        butEnhancerSelector.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butEnhancerSelectorActionPerformed(evt);
-            }
-        });
+        jLabel5.setText("Enhancer Type");
 
         jcbAvoidEnhancer.setText("Avoid");
         jcbAvoidEnhancer.addActionListener(new java.awt.event.ActionListener() {
@@ -143,13 +146,6 @@ public class SearchPanel extends javax.swing.JPanel {
 
         jLabel6.setText("Taste Preference");
 
-        butTasteSelector.setText("Choose Taste Preference");
-        butTasteSelector.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butTasteSelectorActionPerformed(evt);
-            }
-        });
-
         jcbAvoidTaste.setText("Avoid");
         jcbAvoidTaste.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -158,14 +154,6 @@ public class SearchPanel extends javax.swing.JPanel {
         });
 
         jLabel7.setText("Preparation Method");
-
-        butPreparationSelector.setText("Choose Preparation Method");
-        butPreparationSelector.setActionCommand("Choose Preparation");
-        butPreparationSelector.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butPreparationSelectorActionPerformed(evt);
-            }
-        });
 
         jcbAvoidPreparation.setText("Avoid");
         jcbAvoidPreparation.addActionListener(new java.awt.event.ActionListener() {
@@ -186,24 +174,27 @@ public class SearchPanel extends javax.swing.JPanel {
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel1)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(butGarnishingSelector, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
-                            .addComponent(butSupplementaryJuiceSelector, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(butPreparationSelector, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(butTasteSelector, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(butEnhancerSelector, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(butPrimaryJuiceSelector, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(butAlcoholSelector, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jcbPreparation, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jcbEnhancerType, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jcbAlcoholType, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jcbPrimaryJuice, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jcbSupplementaryJuice, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jcbGarnishing, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jcbTaste, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jcbAvoidPreparation)
                             .addComponent(jcbAvoidTaste)
@@ -220,57 +211,43 @@ public class SearchPanel extends javax.swing.JPanel {
                 .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(butAlcoholSelector)
-                    .addComponent(jcbAvoidAlcohol))
+                    .addComponent(jcbAvoidAlcohol)
+                    .addComponent(jcbAlcoholType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(butEnhancerSelector)
-                    .addComponent(jcbAvoidEnhancer))
+                    .addComponent(jcbAvoidEnhancer)
+                    .addComponent(jcbEnhancerType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(butPrimaryJuiceSelector)
-                    .addComponent(jcbAvoidPrimaryJuice))
+                    .addComponent(jcbAvoidPrimaryJuice)
+                    .addComponent(jcbPrimaryJuice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(butSupplementaryJuiceSelector)
-                    .addComponent(jcbAvoidSupplementaryJuice))
+                    .addComponent(jcbAvoidSupplementaryJuice)
+                    .addComponent(jcbSupplementaryJuice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(butGarnishingSelector)
-                    .addComponent(jcbAvoidGarnishing))
+                    .addComponent(jcbAvoidGarnishing)
+                    .addComponent(jcbGarnishing, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(butTasteSelector)
-                    .addComponent(jcbAvoidTaste))
+                    .addComponent(jcbAvoidTaste)
+                    .addComponent(jcbTaste, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel7)
-                        .addComponent(butPreparationSelector))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(jcbPreparation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jcbAvoidPreparation))
-                .addGap(18, 18, 18)
+                .addGap(19, 19, 19)
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(67, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void butAlcoholSelectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butAlcoholSelectorActionPerformed
-        IngredientSelectorDialog dialog = new IngredientSelectorDialog(Filter.Alcohol);
-        dialog.setVisible(true);
-        if (dialog.getSelectedIngredient() != null) {
-            butAlcoholSelector.setText(dialog.getSelectedIngredient());
-            if (chosenFiltersAndValues.containsKey(Filter.Alcohol)) {
-                chosenFiltersAndValues.replace(Filter.Alcohol, dialog.getSelectedIngredient());
-            } else {
-                chosenFiltersAndValues.put(Filter.Alcohol, dialog.getSelectedIngredient());
-            }
-        }
-    }//GEN-LAST:event_butAlcoholSelectorActionPerformed
 
     private void jcbAvoidPrimaryJuiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbAvoidPrimaryJuiceActionPerformed
         // TODO add your handling code here:
@@ -280,35 +257,9 @@ public class SearchPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jcbAvoidAlcoholActionPerformed
 
-    private void butSupplementaryJuiceSelectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butSupplementaryJuiceSelectorActionPerformed
-        IngredientSelectorDialog dialog = new IngredientSelectorDialog(Filter.SupplementaryJuice);
-        dialog.setVisible(true);
-        if (dialog.getSelectedIngredient() != null) {
-            butSupplementaryJuiceSelector.setText(dialog.getSelectedIngredient());
-            if (chosenFiltersAndValues.containsKey(Filter.SupplementaryJuice)) {
-                chosenFiltersAndValues.replace(Filter.SupplementaryJuice, dialog.getSelectedIngredient());
-            } else {
-                chosenFiltersAndValues.put(Filter.SupplementaryJuice, dialog.getSelectedIngredient());
-            }
-        } 
-    }//GEN-LAST:event_butSupplementaryJuiceSelectorActionPerformed
-
     private void jcbAvoidSupplementaryJuiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbAvoidSupplementaryJuiceActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jcbAvoidSupplementaryJuiceActionPerformed
-
-    private void butGarnishingSelectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butGarnishingSelectorActionPerformed
-        IngredientSelectorDialog dialog = new IngredientSelectorDialog(Filter.Garnishing);
-        dialog.setVisible(true);
-        if (dialog.getSelectedIngredient() != null) {
-            butGarnishingSelector.setText(dialog.getSelectedIngredient());
-            if (chosenFiltersAndValues.containsKey(Filter.Garnishing)) {
-                chosenFiltersAndValues.replace(Filter.Garnishing, dialog.getSelectedIngredient());
-            } else {
-                chosenFiltersAndValues.put(Filter.Garnishing, dialog.getSelectedIngredient());
-            }
-        } 
-    }//GEN-LAST:event_butGarnishingSelectorActionPerformed
 
     private void jcbAvoidGarnishingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbAvoidGarnishingActionPerformed
         // TODO add your handling code here:
@@ -318,79 +269,16 @@ public class SearchPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jcbAvoidEnhancerActionPerformed
 
-    private void butEnhancerSelectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butEnhancerSelectorActionPerformed
-        IngredientSelectorDialog dialog = new IngredientSelectorDialog(Filter.Enhancer);
-        dialog.setVisible(true);
-        if (dialog.getSelectedIngredient() != null) {
-            butEnhancerSelector.setText(dialog.getSelectedIngredient());
-            if (chosenFiltersAndValues.containsKey(Filter.Enhancer)) {
-                chosenFiltersAndValues.replace(Filter.Enhancer, dialog.getSelectedIngredient());
-            } else {
-                chosenFiltersAndValues.put(Filter.Enhancer, dialog.getSelectedIngredient());
-            }
-        }
-
-    }//GEN-LAST:event_butEnhancerSelectorActionPerformed
-
-    private void butTasteSelectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butTasteSelectorActionPerformed
-        IngredientSelectorDialog dialog = new IngredientSelectorDialog(Filter.Taste);
-        dialog.setVisible(true);
-        if (dialog.getSelectedIngredient() != null) {
-            butTasteSelector.setText(dialog.getSelectedIngredient());
-            if (chosenFiltersAndValues.containsKey(Filter.Taste)) {
-                chosenFiltersAndValues.replace(Filter.Taste, dialog.getSelectedIngredient());
-            } else {
-                chosenFiltersAndValues.put(Filter.Taste, dialog.getSelectedIngredient());
-            }
-        }
-    }//GEN-LAST:event_butTasteSelectorActionPerformed
-
     private void jcbAvoidTasteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbAvoidTasteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jcbAvoidTasteActionPerformed
 
-    private void butPreparationSelectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butPreparationSelectorActionPerformed
-        IngredientSelectorDialog dialog = new IngredientSelectorDialog(Filter.Preparation);
-        dialog.setVisible(true);
-        if (dialog.getSelectedIngredient() != null) {
-            butPreparationSelector.setText(dialog.getSelectedIngredient());
-            if (chosenFiltersAndValues.containsKey(Filter.Preparation)) {
-                chosenFiltersAndValues.replace(Filter.Preparation, dialog.getSelectedIngredient());
-            } else {
-                chosenFiltersAndValues.put(Filter.Preparation, dialog.getSelectedIngredient());
-            }
-        }
-    }//GEN-LAST:event_butPreparationSelectorActionPerformed
-
     private void jcbAvoidPreparationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbAvoidPreparationActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jcbAvoidPreparationActionPerformed
-
-    private void butPrimaryJuiceSelectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butPrimaryJuiceSelectorActionPerformed
-        IngredientSelectorDialog dialog = new IngredientSelectorDialog(Filter.PrimaryJuice);
-        dialog.setVisible(true);
-        if (dialog.getSelectedIngredient() != null) {
-            butPrimaryJuiceSelector.setText(dialog.getSelectedIngredient());
-        }
-        if (dialog.getSelectedIngredient() != null) {
-            butPrimaryJuiceSelector.setText(dialog.getSelectedIngredient());
-            if (chosenFiltersAndValues.containsKey(Filter.PrimaryJuice)) {
-                chosenFiltersAndValues.replace(Filter.PrimaryJuice, dialog.getSelectedIngredient());
-            } else {
-                chosenFiltersAndValues.put(Filter.PrimaryJuice, dialog.getSelectedIngredient());
-            }
-        }        
-    }//GEN-LAST:event_butPrimaryJuiceSelectorActionPerformed
     private DefaultListModel<String> blackListedModel = new DefaultListModel<>();
     private DefaultListModel<String> whiteListedModel = new DefaultListModel<>();
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton butAlcoholSelector;
-    private javax.swing.JButton butEnhancerSelector;
-    private javax.swing.JButton butGarnishingSelector;
-    private javax.swing.JButton butPreparationSelector;
-    private javax.swing.JButton butPrimaryJuiceSelector;
-    private javax.swing.JButton butSupplementaryJuiceSelector;
-    private javax.swing.JButton butTasteSelector;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -399,6 +287,7 @@ public class SearchPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JComboBox<String> jcbAlcoholType;
     private javax.swing.JCheckBox jcbAvoidAlcohol;
     private javax.swing.JCheckBox jcbAvoidEnhancer;
     private javax.swing.JCheckBox jcbAvoidGarnishing;
@@ -406,18 +295,24 @@ public class SearchPanel extends javax.swing.JPanel {
     private javax.swing.JCheckBox jcbAvoidPrimaryJuice;
     private javax.swing.JCheckBox jcbAvoidSupplementaryJuice;
     private javax.swing.JCheckBox jcbAvoidTaste;
+    private javax.swing.JComboBox<String> jcbEnhancerType;
+    private javax.swing.JComboBox<String> jcbGarnishing;
+    private javax.swing.JComboBox<String> jcbPreparation;
+    private javax.swing.JComboBox<String> jcbPrimaryJuice;
+    private javax.swing.JComboBox<String> jcbSupplementaryJuice;
+    private javax.swing.JComboBox<String> jcbTaste;
     // End of variables declaration//GEN-END:variables
 
     void resetSelections() {
         chosenFiltersAndValues.clear();
-        butAlcoholSelector.setText("Choose Alcohol");
-        butEnhancerSelector.setText("Choose Enhancer");
-        butGarnishingSelector.setText("Choose Garnishing");
-        butPreparationSelector.setText("Choose Preparation Method");
-        butPrimaryJuiceSelector.setText("Choose Primary Juice");
-        butSupplementaryJuiceSelector.setText("Choose Supplementary Juice");
-        butTasteSelector.setText("Choose Taste Preference");
-        
+        jcbAlcoholType.setSelectedIndex(0);
+        jcbEnhancerType.setSelectedIndex(0);
+        jcbPrimaryJuice.setSelectedIndex(0);
+        jcbSupplementaryJuice.setSelectedIndex(0);
+        jcbGarnishing.setSelectedIndex(0);
+        jcbPreparation.setSelectedIndex(0);
+        jcbTaste.setSelectedIndex(0);
+
         jcbAvoidAlcohol.setSelected(false);
         jcbAvoidEnhancer.setSelected(false);
         jcbAvoidGarnishing.setSelected(false);
@@ -425,5 +320,35 @@ public class SearchPanel extends javax.swing.JPanel {
         jcbAvoidPrimaryJuice.setSelected(false);
         jcbAvoidSupplementaryJuice.setSelected(false);
         jcbAvoidTaste.setSelected(false);
+    }
+
+    private void populateSelectors() {
+        for (AlcoholType e : AlcoholType.values()) {
+            jcbAlcoholType.addItem(e.toString());
+        }
+        
+        for (EnhancerType e : EnhancerType.values()) {
+            jcbEnhancerType.addItem(e.toString());
+        }
+        
+        for (PrimaryJuice e : PrimaryJuice.values()) {
+            jcbPrimaryJuice.addItem(e.toString());
+        }
+        
+        for (SupplementaryJuice e : SupplementaryJuice.values()) {
+            jcbSupplementaryJuice.addItem(e.toString());
+        }
+        
+        for (Taste e : Taste.values()) {
+            jcbTaste.addItem(e.toString());
+        }
+        
+        for (Garnishing e : Garnishing.values()) {
+            jcbGarnishing.addItem(e.toString());
+        }
+        
+        for (Preparation e : Preparation.values()) {
+            jcbPreparation.addItem(e.toString());
+        }        
     }
 }

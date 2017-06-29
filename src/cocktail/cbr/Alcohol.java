@@ -9,6 +9,7 @@ package cocktail.cbr;
  *
  * @author visaac
  */
+
 public enum Alcohol {
    None,    
    Amber_Rum,

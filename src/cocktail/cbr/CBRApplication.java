@@ -19,7 +19,9 @@ import jcolibri.method.retrieve.NNretrieval.NNScoringMethod;
 import jcolibri.method.retrieve.selection.SelectCases;
 import java.util.Collection;
 import java.util.List;
+import jcolibri.connector.DataBaseConnector;
 import jcolibri.method.retrieve.NNretrieval.similarity.local.EqualsStringIgnoreCase;
+import jcolibri.method.reuse.DirectAttributeCopyMethod;
 
 public class CBRApplication implements StandardCBRApplication {
 
@@ -31,6 +33,7 @@ public class CBRApplication implements StandardCBRApplication {
     NNConfig similarityConfig;
     
     List<RetrievalResult> retrievedCases = new ArrayList<RetrievalResult>();
+    private List<String> adaptationConfig;
     //******************************************************************/
     // Configuration
     //******************************************************************/
@@ -52,7 +55,7 @@ public class CBRApplication implements StandardCBRApplication {
         connector = new jcolibri.connector.PlainTextConnector();
         connector.initFromXMLfile(jcolibri.util.FileIO
                 .findFile("config/plainTextConnectorConfig.xml"));
-    }
+}
 
     /**
      * Configures the case base
@@ -117,6 +120,7 @@ public class CBRApplication implements StandardCBRApplication {
     @Generated(value = {"ColibriStudio"})
     @Override
     public void cycle(CBRQuery query) throws ExecutionException {
+        retrievedCases.clear();
         // Execute NN
         Collection<RetrievalResult> eval = NNScoringMethod.evaluateSimilarity(casebase.getCases(), query, similarityConfig);
 
@@ -124,10 +128,63 @@ public class CBRApplication implements StandardCBRApplication {
         //eval = SelectCases.selectTopKRR(eval, 5);
         Collection<CBRCase> selectedCases = SelectCases.selectTopK(eval, 3);
         
+        // Adapt depending on user selection
+        if(adaptationConfig.contains("ALCOHOL"))
+        {
+            DirectAttributeCopyMethod.copyAttribute(new Attribute("AlcoholType",CaseDescription.class), 
+                                                    new Attribute("AlcoholType",CaseDescription.class), 
+                                                    query, selectedCases);
+        }
+
+        if(adaptationConfig.contains("ENHANCER"))
+        {
+            DirectAttributeCopyMethod.copyAttribute(new Attribute("EnhancerType", CaseDescription.class), 
+                                                    new Attribute("EnhancerType", CaseDescription.class), 
+                                                    query, selectedCases);
+        }
+        
+        if(adaptationConfig.contains("PRIMARY_JUICE"))
+        {
+            DirectAttributeCopyMethod.copyAttribute(new Attribute("PrimaryJuice", CaseDescription.class), 
+                                                    new Attribute("PrimaryJuice", CaseDescription.class), 
+                                                    query, selectedCases);
+        }
+        
+        if(adaptationConfig.contains("SUPPLEMENTARY_JUICE"))
+        {
+            DirectAttributeCopyMethod.copyAttribute(new Attribute("SupplementaryJuice", CaseDescription.class), 
+                                                    new Attribute("SupplementaryJuice", CaseDescription.class), 
+                                                    query, selectedCases);
+        }
+        
+        if(adaptationConfig.contains("GARNISHING"))
+        {
+            DirectAttributeCopyMethod.copyAttribute(new Attribute("Garnishing", CaseDescription.class), 
+                                                    new Attribute("Garnishing", CaseDescription.class), 
+                                                    query, selectedCases);
+        }
+        
+        if(adaptationConfig.contains("TASTE"))
+        {
+            DirectAttributeCopyMethod.copyAttribute(new Attribute("Taste", CaseDescription.class), 
+                                                    new Attribute("Taste", CaseDescription.class), 
+                                                    query, selectedCases);
+        }
+        
+        if(adaptationConfig.contains("PREPARATION"))
+        {
+            DirectAttributeCopyMethod.copyAttribute(new Attribute("Preparation", CaseDescription.class), 
+                                                    new Attribute("Preparation", CaseDescription.class), 
+                                                    query, selectedCases);
+        }
+        
         System.out.println("Retrieved cases:");
-        for(RetrievalResult rr: eval)
-            if(selectedCases.contains(rr.get_case()))
+        for(RetrievalResult rr: eval) {
+            if(selectedCases.contains(rr.get_case())) {
+                System.out.println(rr.get_case());
 		retrievedCases.add(rr);
+            }
+        }
 	
     }
 
@@ -142,23 +199,46 @@ public class CBRApplication implements StandardCBRApplication {
     }
     
 
-    List<CaseDescription> getSelectedCases() {
+    public List<CocktailCase> getSelectedCases() {
     
-        List<CaseDescription> outList = new ArrayList<>();
+        List<CocktailCase> outList = new ArrayList<>();
         for (RetrievalResult rr : retrievedCases) {
-
-        double sim = rr.getEval();
-
-        CBRCase _case = rr.get_case();
-        //this.caseId.setText(_case.getID().toString()+" -> "+sim+" ("+(currentCase+1)+"/"+cases.size()+")");
-
-        CaseDescription desc = (CaseDescription) _case.getDescription();
-        outList.add(desc);
-//        TravelSolution sol = (TravelSolution) _case.getSolution();
-//        this.price.setText(sol.getPrice().toString());
-//        this.hotel.setText(sol.getHotel());
+            CocktailCase ccase = new CocktailCase();
+            ccase.similarity = rr.getEval();
+            CBRCase _case = rr.get_case();
+            //this.caseId.setText(_case.getID().toString()+" -> "+sim+" ("+(currentCase+1)+"/"+cases.size()+")");
+            ccase.description = (CaseDescription) _case.getDescription();
+            ccase.recipe = (Recipe)_case.getSolution();
+            outList.add(ccase);
         }
         
         return outList;
     }
+
+    public void setAdaptationConfig(List<String> adaptationPreferences) {
+        this.adaptationConfig = adaptationPreferences;
+    }
+    
+    public void learn (List<CBRCase> cases) {
+        for (CBRCase ccase : cases) {
+            CaseDescription desc = (CaseDescription)ccase.getDescription();
+            desc.setCaseID(getNextId());
+        }
+        casebase.learnCases(cases);
+    }
+    
+    private int getNextId() {
+        Integer i = 0;
+
+        for (CBRCase ccase : casebase.getCases()) {
+            CaseDescription desc = (CaseDescription)ccase.getDescription();
+            if (desc.getCaseID().intValue() > i.intValue()) {
+                i = desc.getCaseID();
+            }
+        }
+            
+        return i + 1;
+    }
+
+    
 }

@@ -12,27 +12,10 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/workspace/NetBeansProjects/CocktailRecommender/src/cocktail/ui/ImportanceConfigPanel.java</file>
-            <file>file:/C:/workspace/NetBeansProjects/CocktailRecommender/src/cocktail/ui/AdaptationSettingsDialog.java</file>
-            <file>file:/C:/workspace/NetBeansProjects/CocktailRecommender/src/cocktail/ui/IngredientSelectorDialog.java</file>
-            <file>file:/C:/workspace/NetBeansProjects/CocktailRecommender/src/cocktail/ui/OutcomePanel.java</file>
-            <file>file:/C:/workspace/NetBeansProjects/CocktailRecommender/src/cocktail/ui/Constants.java</file>
-            <file>file:/C:/workspace/NetBeansProjects/CocktailRecommender/src/cocktail/cbr/Taste.java</file>
-            <file>file:/C:/workspace/NetBeansProjects/CocktailRecommender/src/cocktail/ui/CocktailRecommender.java</file>
-            <file>file:/C:/workspace/NetBeansProjects/CocktailRecommender/src/cocktail/ui/SearchPanel.java</file>
-            <file>file:/C:/workspace/NetBeansProjects/CocktailRecommender/src/cocktail/ui/SimilarityConfigPanelv2.java</file>
-            <file>file:/C:/workspace/NetBeansProjects/CocktailRecommender/src/cocktail/cbr/EnhancerType.java</file>
-            <file>file:/C:/workspace/NetBeansProjects/CocktailRecommender/src/cocktail/cbr/Alcohol.java</file>
-            <file>file:/C:/workspace/NetBeansProjects/CocktailRecommender/src/cocktail/ui/SearchPanelv2.java</file>
-            <file>file:/C:/workspace/NetBeansProjects/CocktailRecommender/src/cocktail/cbr/Enhancer.java</file>
-            <file>file:/C:/workspace/NetBeansProjects/CocktailRecommender/src/cocktail/cbr/Recipe.java</file>
-            <file>file:/C:/workspace/NetBeansProjects/CocktailRecommender/src/cocktail/cbr/AlcoholType.java</file>
-            <file>file:/C:/workspace/NetBeansProjects/CocktailRecommender/src/cocktail/cbr/Preparation.java</file>
-            <file>file:/C:/workspace/NetBeansProjects/CocktailRecommender/src/cocktail/cbr/CBRApplication.java</file>
-            <file>file:/C:/workspace/NetBeansProjects/CocktailRecommender/src/cocktail/cbr/CaseDescription.java</file>
-            <file>file:/C:/workspace/NetBeansProjects/CocktailRecommender/src/cocktail/cbr/AlcoholStrength.java</file>
-            <file>file:/C:/workspace/NetBeansProjects/CocktailRecommender/src/cocktail/cbr/SupplementaryJuice.java</file>
-            <file>file:/C:/workspace/NetBeansProjects/CocktailRecommender/src/cocktail/cbr/Garnishing.java</file>
+            <file>file:/C:/workspace/NetBeansProjects/CocktailRecommender/plainTextConnectorConfig.xml</file>
+            <file>file:/C:/workspace/NetBeansProjects/CocktailRecommender/caseStructure.xml</file>
+            <file>file:/C:/workspace/NetBeansProjects/CocktailRecommender/src/CBRApplicationV3.java</file>
+            <file>file:/C:/workspace/NetBeansProjects/CocktailRecommender/src/srepresentation/CaseDescription.java</file>
         </group>
     </open-files>
 </project-private>

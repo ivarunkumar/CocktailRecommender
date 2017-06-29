@@ -7,139 +7,114 @@ import jcolibri.cbrcore.CaseComponent;
 
 public class CaseDescription implements CaseComponent { 
 
-
 	/* Generated Class. Please Do Not Modify... */ 
 
 
-	private java.lang.Integer CaseId;
+	private java.lang.Integer CaseID;
 
 
-	public java.lang.Integer getCaseId()
+	public java.lang.Integer getCaseID()
 		{
-			return CaseId;
+			return CaseID;
 		}
-	public void setCaseId(java.lang.Integer CaseId0)
+	public void setCaseID(java.lang.Integer CaseID0)
 		{
-			this.CaseId = CaseId0;
-		}
-
-	private java.lang.String RecipeName;
-
-
-	public java.lang.String getRecipeName()
-		{
-			return RecipeName;
-		}
-	public void setRecipeName(java.lang.String RecipeName1)
-		{
-			this.RecipeName = RecipeName1;
+			this.CaseID = CaseID0;
 		}
 
-	private java.lang.String Alcohol;
+	private cocktail.cbr.AlcoholType AlcoholType;
 
 
-	public java.lang.String getAlcohol()
+	public cocktail.cbr.AlcoholType getAlcoholType()
 		{
-			return Alcohol;
+			return AlcoholType;
 		}
-	public void setAlcohol(java.lang.String Alcohol2)
+	public void setAlcoholType(cocktail.cbr.AlcoholType AlcoholType1)
 		{
-			this.Alcohol = Alcohol2;
-		}
-
-	private java.lang.String Enhancer;
-
-
-	public java.lang.String getEnhancer()
-		{
-			return Enhancer;
-		}
-	public void setEnhancer(java.lang.String Enhancer3)
-		{
-			this.Enhancer = Enhancer3;
+			this.AlcoholType = AlcoholType1;
 		}
 
-	private java.lang.String PrimaryJuice;
+	private cocktail.cbr.EnhancerType EnhancerType;
 
 
-	public java.lang.String getPrimaryJuice()
+	public cocktail.cbr.EnhancerType getEnhancerType()
+		{
+			return EnhancerType;
+		}
+	public void setEnhancerType(cocktail.cbr.EnhancerType EnhancerType2)
+		{
+			this.EnhancerType = EnhancerType2;
+		}
+
+	private cocktail.cbr.PrimaryJuice PrimaryJuice;
+
+
+	public cocktail.cbr.PrimaryJuice getPrimaryJuice()
 		{
 			return PrimaryJuice;
 		}
-	public void setPrimaryJuice(java.lang.String PrimaryJuice4)
+	public void setPrimaryJuice(cocktail.cbr.PrimaryJuice PrimaryJuice3)
 		{
-			this.PrimaryJuice = PrimaryJuice4;
+			this.PrimaryJuice = PrimaryJuice3;
 		}
 
-	private java.lang.String SupplementaryJuice;
+	private cocktail.cbr.SupplementaryJuice SupplementaryJuice;
 
 
-	public java.lang.String getSupplementaryJuice()
+	public cocktail.cbr.SupplementaryJuice getSupplementaryJuice()
 		{
 			return SupplementaryJuice;
 		}
-	public void setSupplementaryJuice(java.lang.String SupplementaryJuice5)
+	public void setSupplementaryJuice(cocktail.cbr.SupplementaryJuice SupplementaryJuice4)
 		{
-			this.SupplementaryJuice = SupplementaryJuice5;
+			this.SupplementaryJuice = SupplementaryJuice4;
 		}
 
-	private java.lang.String Garnishing;
+	private cocktail.cbr.Garnishing Garnishing;
 
 
-	public java.lang.String getGarnishing()
+	public cocktail.cbr.Garnishing getGarnishing()
 		{
 			return Garnishing;
 		}
-	public void setGarnishing(java.lang.String Garnishing6)
+	public void setGarnishing(cocktail.cbr.Garnishing Garnishing5)
 		{
-			this.Garnishing = Garnishing6;
+			this.Garnishing = Garnishing5;
 		}
 
-	private java.lang.String Taste;
+	private cocktail.cbr.Taste Taste;
 
 
-	public java.lang.String getTaste()
+	public cocktail.cbr.Taste getTaste()
 		{
 			return Taste;
 		}
-	public void setTaste(java.lang.String Taste7)
+	public void setTaste(cocktail.cbr.Taste Taste6)
 		{
-			this.Taste = Taste7;
+			this.Taste = Taste6;
 		}
 
-	private java.lang.String Preparation;
+	private cocktail.cbr.Preparation Preparation;
 
 
-	public java.lang.String getPreparation()
+	public cocktail.cbr.Preparation getPreparation()
 		{
 			return Preparation;
 		}
-	public void setPreparation(java.lang.String Preparation8)
+	public void setPreparation(cocktail.cbr.Preparation Preparation7)
 		{
-			this.Preparation = Preparation8;
-		}
-
-	private java.lang.String Steps;
-
-
-	public java.lang.String getSteps()
-		{
-			return Steps;
-		}
-	public void setSteps(java.lang.String Steps9)
-		{
-			this.Steps = Steps9;
+			this.Preparation = Preparation7;
 		}
 
 
 	@Override
 	public Attribute getIdAttribute()
 		{
-			return new Attribute("CaseId",this.getClass());
+			return new Attribute("CaseID",this.getClass());
 		} 
 
 	public String toString()		{
-			return "["+ Steps + " , " + RecipeName + " , " + Enhancer + " , " + PrimaryJuice + " , " + Preparation + " , " + Garnishing + " , " + Alcohol + " , " + CaseId + " , " + Taste + " , " + SupplementaryJuice +"]";
+			return "[EnhancerType:"+ EnhancerType + " , PrimaryJuice:" + PrimaryJuice + " , Preparation:" + Preparation + " , Garnishing:" + Garnishing + " , AlcoholType:" + AlcoholType + " , Taste:" + Taste + " , CaseID:" + CaseID + " , SupplementaryJuice:" + SupplementaryJuice +"]";
 		}
 
 }

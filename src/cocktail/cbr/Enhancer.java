@@ -23,7 +23,7 @@ public enum Enhancer {
     Coffee,
     Cointreau,
     Coriander,
-    Crème_De_Cassis,
+    Creme_De_Cassis,
     Currant,
     Fruit,
     Ginger,
