@@ -54,7 +54,7 @@ public class ImportanceConfigPanel extends javax.swing.JPanel {
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Alcohol");
+        jLabel1.setText("Alcohol Type");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 41, 150, 35));
 
         jLabel2.setText("Primary Juice");
@@ -66,7 +66,7 @@ public class ImportanceConfigPanel extends javax.swing.JPanel {
         jLabel4.setText("Garnishing");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 150, 35));
 
-        jLabel5.setText("Enhancer");
+        jLabel5.setText("Enhancer Type");
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 150, 35));
 
         jLabel6.setText("Taste Preference");
